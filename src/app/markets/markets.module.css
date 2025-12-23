@@ -1,0 +1,304 @@
+/* Markets Page Styles */
+.marketsPageContainer {
+    display: flex;
+    gap: 2rem;
+    margin-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.marketsSidebar {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.sidebarSticky {
+    position: sticky;
+    top: 100px;
+}
+
+.sidebarHeader {
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-left: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.sidebarHeaderSm {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    padding-left: 0.75rem;
+}
+
+.sidebarNav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.sidebarDivider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 1.5rem;
+}
+
+.sidebarLink {
+    padding: 0.7rem 0.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.15s ease;
+    border-left: 3px solid transparent;
+}
+
+.sidebarLink:hover {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+}
+
+.sidebarLinkActive {
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary);
+    font-weight: 600;
+    border-left-color: var(--primary);
+}
+
+.emoji {
+    font-size: 1.1rem;
+}
+
+.marketsContent {
+    flex: 1;
+    min-width: 0;
+}
+
+.contentHeader h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to bottom right, #fff, #a1a1aa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tableResponsiveWrapper {
+    background: var(--surface);
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.marketTableV2Full {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.marketTableV2Full th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    color: var(--text-secondary);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+}
+
+.marketTableV2Full td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.marketCell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.marketIndex {
+    color: var(--text-secondary);
+    width: 24px;
+    font-size: 0.85rem;
+}
+
+.marketThumb {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+
+.marketLinkMain {
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.priceStack {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.fontNumeric {
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+}
+
+.emptyState {
+    padding: 4rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* Mobile Overrides */
+@media (max-width: 900px) {
+    .marketsPageContainer {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .marketsSidebar {
+        width: 100%;
+    }
+
+    .sidebarSticky {
+        position: static;
+    }
+
+    .sidebarNav {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .sidebarNav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sidebarLink {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 0.6rem 1rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+    }
+
+    .sidebarLinkActive {
+        border-bottom-color: var(--primary);
+    }
+
+    .sidebarHeader,
+    .sidebarHeaderSm,
+    .sidebarDivider {
+        display: none;
+    }
+
+    .contentHeader h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Mobile Card Styles */
+.mobileCardStack {
+    display: flex;
+    flex-direction: column;
+}
+
+.marketMobileCard {
+    display: block;
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+}
+
+.mCardHeader {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.mCardRank {
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.mCardTitle {
+    font-weight: 700;
+    line-height: 1.4;
+    font-size: 1.05rem;
+    color: var(--text-main);
+}
+
+.mPriceRow {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.mPriceBox {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.75rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--border);
+}
+
+.mPriceBoxYes {
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.mPriceBoxNo {
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.mLabel {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.mValue {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.mPriceBoxYes .mValue {
+    color: var(--green);
+}
+
+.mPriceBoxNo .mValue {
+    color: var(--red);
+}
+
+.mCardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.btnXs {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+}

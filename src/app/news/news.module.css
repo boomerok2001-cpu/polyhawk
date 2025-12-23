@@ -1,0 +1,20 @@
+.newsCard:hover {
+    border-color: var(--primary) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .newsCard {
+        flex-direction: column;
+    }
+
+    .newsCard .imageContainer {
+        width: 100% !important;
+        height: 200px !important;
+    }
+
+    .pageTitle {
+        font-size: 2.5rem !important;
+    }
+}
