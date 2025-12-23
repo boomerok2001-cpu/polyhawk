@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { fetchPolymarketTrending, fetchKalshiMarkets, fetchNews, POLYMARKET_REFERRAL, fetchMarketsByCategory, fetchNewMarkets, fetchWhaleAlertsV2 as fetchWhaleAlerts } from '@/lib/api';
 import { formatCurrency } from '@/data/markets';
 import NewsletterSection from '@/components/NewsletterSection';
-import HawkoButton from '@/components/HawkoButton';
 import HomeMarketTable from '@/components/HomeMarketTable';
 import WhaleAlertsWidget from '@/components/WhaleAlertsWidget';
 
@@ -93,7 +92,6 @@ export default async function Home() {
           <a href={POLYMARKET_REFERRAL} target="_blank" className="btn btn-primary" style={{ fontSize: '1rem', padding: '0.8rem 1.5rem', flex: '1 1 auto', maxWidth: '300px' }}>
             Trade on Polymarket
           </a>
-          <HawkoButton />
         </div>
       </div>
 
