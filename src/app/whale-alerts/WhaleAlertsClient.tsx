@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import WhaleAlertSettings from '@/components/WhaleAlertSettings';
 import styles from './whale-alerts.module.css';
 
 interface WhaleAlert {
@@ -58,6 +59,11 @@ export default function WhaleAlertsClient({ initialAlerts }: WhaleAlertsClientPr
                 const existingIds = new Set(prev.map(a => a.id));
                 const uniqueNew = newAlerts.filter(a => !existingIds.has(a.id));
 
+                // Check for notification triggers
+                if (uniqueNew.length > 0) {
+                    checkAndSendNotifications(uniqueNew);
+                }
+
                 const combined = [...uniqueNew, ...prev]
                     .sort((a, b) => b.timestamp - a.timestamp)
                     .slice(0, 1000);
@@ -70,6 +76,65 @@ export default function WhaleAlertsClient({ initialAlerts }: WhaleAlertsClientPr
             });
         } catch (error) {
             console.error('Error fetching whale alerts:', error);
+        }
+    };
+
+    const checkAndSendNotifications = async (alerts: WhaleAlert[]) => {
+        if (typeof window === 'undefined') return;
+
+        const prefsStr = localStorage.getItem('polyhawk_alert_preferences');
+        if (!prefsStr) return;
+
+        try {
+            const prefs = JSON.parse(prefsStr);
+            if (!prefs.enabled) return;
+
+            for (const alert of alerts) {
+                // Check if alert meets threshold
+                if (alert.amount < prefs.minTradeValue) continue;
+
+                // Send email notification
+                if (prefs.emailEnabled && prefs.email) {
+                    await fetch('/api/send-notification', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            channel: 'email',
+                            destination: prefs.email,
+                            alert: {
+                                amount: alert.amount,
+                                marketTitle: alert.marketTitle,
+                                side: alert.side,
+                                price: alert.price,
+                                marketUrl: alert.marketUrl,
+                                timestamp: alert.timestamp
+                            }
+                        })
+                    }).catch(console.error);
+                }
+
+                // Send Telegram notification
+                if (prefs.telegramEnabled && prefs.telegramChatId) {
+                    await fetch('/api/send-notification', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            channel: 'telegram',
+                            destination: prefs.telegramChatId,
+                            alert: {
+                                amount: alert.amount,
+                                marketTitle: alert.marketTitle,
+                                side: alert.side,
+                                price: alert.price,
+                                marketUrl: alert.marketUrl,
+                                timestamp: alert.timestamp
+                            }
+                        })
+                    }).catch(console.error);
+                }
+            }
+        } catch (error) {
+            console.error('Error sending notifications:', error);
         }
     };
 
@@ -110,85 +175,90 @@ export default function WhaleAlertsClient({ initialAlerts }: WhaleAlertsClientPr
     });
 
     return (
-        <div className={styles.alertsGrid}>
-            <div className={styles.filtersBar}>
-                <div className={styles.timeFramePicker}>
-                    {timeFrames.map(tf => (
-                        <button
-                            key={tf}
-                            onClick={() => setTimeFrame(tf)}
-                            className={`${styles.tfButton} ${timeFrame === tf ? styles.tfButtonActive : ''}`}
-                        >
-                            {tf}
-                        </button>
-                    ))}
-                </div>
-            </div>
+        <div>
+            {/* Alert Settings */}
+            <WhaleAlertSettings />
 
-            {filteredAlerts.length > 0 ? (
-                filteredAlerts.map((alert) => (
-                    <div key={alert.id} className={styles.whaleAlertCard}>
-                        <div className={`
+            {/* Whale Alerts Grid */}
+            <div className={styles.alertsGrid}>
+                <div className={styles.filtersBar}>
+                    <div className={styles.timeFramePicker}>
+                        {timeFrames.map(tf => (
+                            <button
+                                key={tf}
+                                onClick={() => setTimeFrame(tf)}
+                                className={`${styles.tfButton} ${timeFrame === tf ? styles.tfButtonActive : ''}`}
+                            >
+                                {tf}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {filteredAlerts.length > 0 ? (
+                    filteredAlerts.map((alert) => (
+                        <div key={alert.id} className={styles.whaleAlertCard}>
+                            <div className={`
                             ${styles.alertAccent} 
                             ${alert.amount >= 50000 ? styles.accentWhale : alert.amount >= 20000 ? styles.accentBigFish : styles.accentRegular}
                         `} />
 
-                        <div className={styles.cardHeader}>
-                            <div style={{ flex: 1, minWidth: '300px' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                                    {alert.icon ? (
-                                        <img src={alert.icon} alt="" className={styles.marketIcon} />
-                                    ) : (
-                                        <span className={styles.whaleEmoji}>{getWhaleEmoji(alert.amount)}</span>
-                                    )}
+                            <div className={styles.cardHeader}>
+                                <div style={{ flex: 1, minWidth: '300px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                                        {alert.icon ? (
+                                            <img src={alert.icon} alt="" className={styles.marketIcon} />
+                                        ) : (
+                                            <span className={styles.whaleEmoji}>{getWhaleEmoji(alert.amount)}</span>
+                                        )}
 
-                                    <div>
-                                        <div className={styles.timeAgo}>
-                                            {formatTimeAgo(alert.timestamp)}
-                                        </div>
-                                        <div className={styles.amountText}>
-                                            ${alert.amount.toLocaleString()}
+                                        <div>
+                                            <div className={styles.timeAgo}>
+                                                {formatTimeAgo(alert.timestamp)}
+                                            </div>
+                                            <div className={styles.amountText}>
+                                                ${alert.amount.toLocaleString()}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <Link
-                                    href={alert.marketUrl}
-                                    target="_blank"
-                                    className={styles.marketLink}
-                                >
-                                    {alert.marketTitle}
-                                </Link>
+                                    <Link
+                                        href={alert.marketUrl}
+                                        target="_blank"
+                                        className={styles.marketLink}
+                                    >
+                                        {alert.marketTitle}
+                                    </Link>
 
-                                <div className={styles.metadataRow}>
-                                    <div>
-                                        <span className={styles.metaLabel}>Side: </span>
-                                        <span className={`${styles.sideTerm} ${alert.side === 'YES' ? styles.sideYes : styles.sideNo}`}>
-                                            {alert.side}
-                                        </span>
-                                    </div>
-                                    <div className={styles.walletInfo}>
-                                        <span className={styles.walletLabel}>Trader:</span>
-                                        <span className={styles.walletAddress}>
-                                            {isClient ? (
-                                                `${alert.walletAddress.slice(0, 6)}...${alert.walletAddress.slice(-4)}`
-                                            ) : (
-                                                '0x...'
-                                            )}
-                                        </span>
+                                    <div className={styles.metadataRow}>
+                                        <div>
+                                            <span className={styles.metaLabel}>Side: </span>
+                                            <span className={`${styles.sideTerm} ${alert.side === 'YES' ? styles.sideYes : styles.sideNo}`}>
+                                                {alert.side}
+                                            </span>
+                                        </div>
+                                        <div className={styles.walletInfo}>
+                                            <span className={styles.walletLabel}>Trader:</span>
+                                            <span className={styles.walletAddress}>
+                                                {isClient ? (
+                                                    `${alert.walletAddress.slice(0, 6)}...${alert.walletAddress.slice(-4)}`
+                                                ) : (
+                                                    '0x...'
+                                                )}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    ))
+                ) : (
+                    <div className={styles.emptyState}>
+                        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎣</div>
+                        <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>No whales spotted in this time frame</h3>
+                        <p style={{ color: 'var(--text-secondary)' }}>Try selecting a longer duration or check back later.</p>
                     </div>
-                ))
-            ) : (
-                <div className={styles.emptyState}>
-                    <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎣</div>
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>No whales spotted in this time frame</h3>
-                    <p style={{ color: 'var(--text-secondary)' }}>Try selecting a longer duration or check back later.</p>
-                </div>
-            )}
-        </div>
-    );
+                )}
+            </div>
+            );
 }
