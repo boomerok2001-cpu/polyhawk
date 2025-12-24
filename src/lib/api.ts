@@ -749,20 +749,25 @@ export async function fetchWhaleAlertsV2(): Promise<WhaleAlert[]> {
                 const conditionId = trade.conditionId || trade.asset || 'unknown';
                 const eventInfo = conditionToEvent.get(conditionId);
 
+                // Skip trades without valid event mapping to prevent broken links
+                if (!eventInfo || !eventInfo.slug) {
+                    continue;
+                }
+
                 whaleAlerts.push({
                     id: tradeId,
                     marketId: conditionId,
-                    marketTitle: eventInfo?.title || trade.title || 'Unknown Market',
-                    marketSlug: eventInfo?.slug || trade.slug || 'unknown',
+                    marketTitle: eventInfo.title,
+                    marketSlug: eventInfo.slug,
                     walletAddress: trade.proxyWallet || trade.taker || trade.maker || 'Unknown',
                     amount: tradeValue,
                     side: (trade.outcome === 'Yes' || trade.outcome === 'YES') ? 'YES' : 'NO',
                     price: price,
                     timestamp: trade.timestamp || Date.now() / 1000,
-                    marketUrl: getPolymarketUrl(`event/${eventInfo?.slug || trade.slug}`),
+                    marketUrl: getPolymarketUrl(`event/${eventInfo.slug}`),
                     tradeValue: tradeValue,
-                    icon: eventInfo?.icon || trade.icon || 'https://polymarket.com/favicon.ico',
-                    category: eventInfo?.category || 'Market',
+                    icon: eventInfo.icon || 'https://polymarket.com/favicon.ico',
+                    category: eventInfo.category || 'Market',
                     debug: false
                 });
 
