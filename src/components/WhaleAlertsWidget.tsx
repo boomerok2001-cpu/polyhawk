@@ -13,70 +13,37 @@ export default function WhaleAlertsWidget({ initialAlerts }: WhaleAlertsWidgetPr
     const [timeFrame, setTimeFrame] = useState('24H');
     const STORAGE_KEY = 'polyhawk_whale_alerts_v1';
 
-    // 1. Load from backend on mount (with localStorage as fallback)
+    // 1. Load from localStorage on mount
     useEffect(() => {
-        const loadAlerts = async () => {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
             try {
-                // Try to fetch from backend first
-                const response = await fetch('/api/whale-alerts-store?limit=100');
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.alerts && data.alerts.length > 0) {
-                        setAlerts(data.alerts);
-                        // Update localStorage cache
-                        localStorage.setItem(STORAGE_KEY, JSON.stringify(data.alerts.slice(0, 1000)));
-                        return;
-                    }
-                }
-            } catch (err) {
-                console.error('Failed to fetch from backend, using localStorage:', err);
+                const parsed = JSON.parse(stored);
+                setAlerts(parsed);
+            } catch (e) {
+                console.error('Failed to parse stored alerts', e);
             }
-
-            // Fallback to localStorage if backend fails
-            const stored = localStorage.getItem(STORAGE_KEY);
-            if (stored) {
-                try {
-                    const parsed = JSON.parse(stored);
-                    setAlerts(parsed);
-                } catch (e) {
-                    console.error('Failed to parse stored alerts', e);
-                }
-            }
-        };
-
-        loadAlerts();
+        }
     }, []);
 
-    // 2. Poll every 15 seconds: fetch fresh alerts and store in backend
+    // 2. Poll for new alerts every 15 seconds from Polymarket
     useEffect(() => {
         const poll = async () => {
             try {
-                // Fetch fresh alerts from Polymarket
-                const freshResponse = await fetch('/api/whale-alerts', { cache: 'no-store' });
-                if (freshResponse.ok) {
-                    const freshAlerts = await freshResponse.json();
-                    // Store them in backend
-                    if (freshAlerts && freshAlerts.length > 0) {
-                        await fetch('/api/whale-alerts-store', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(freshAlerts)
-                        }).catch(() => { }); // Silent fail if storage fails
-                    }
-                }
-
-                // Then fetch from backend storage to get all accumulated alerts
-                const response = await fetch('/api/whale-alerts-store?limit=100', { cache: 'no-store' });
+                const response = await fetch('/api/whale-alerts', { cache: 'no-store' });
                 if (!response.ok) return;
-                const data = await response.json();
-                const newAlerts: WhaleAlert[] = data.alerts || [];
+                const newAlerts: WhaleAlert[] = await response.json();
+
+                if (!newAlerts || newAlerts.length === 0) return;
 
                 setAlerts(prev => {
-                    const combined = [...newAlerts]
+                    const existingIds = new Set(prev.map(a => a.id));
+                    const uniqueNew = newAlerts.filter(a => !existingIds.has(a.id));
+
+                    const combined = [...uniqueNew, ...prev]
                         .sort((a, b) => b.timestamp - a.timestamp)
                         .slice(0, 1000);
 
-                    // Update localStorage cache
                     localStorage.setItem(STORAGE_KEY, JSON.stringify(combined));
                     return combined;
                 });
@@ -84,6 +51,9 @@ export default function WhaleAlertsWidget({ initialAlerts }: WhaleAlertsWidgetPr
                 console.error('Polling error:', err);
             }
         };
+
+        // Poll immediately on mount
+        poll();
 
         const interval = setInterval(poll, 15000);
         return () => clearInterval(interval);
