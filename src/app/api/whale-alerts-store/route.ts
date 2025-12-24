@@ -15,6 +15,16 @@ export async function GET(request: Request) {
         const limit = parseInt(searchParams.get('limit') || '100');
         const offset = parseInt(searchParams.get('offset') || '0');
 
+        // Check if KV is configured
+        if (!process.env.KV_REST_API_URL) {
+            console.warn('Vercel KV not configured');
+            return NextResponse.json({
+                alerts: [],
+                total: 0,
+                hasMore: false
+            });
+        }
+
         // Retrieve all alerts from KV
         const alerts: WhaleAlert[] = await kv.get(WHALE_ALERTS_KEY) || [];
 
@@ -35,12 +45,27 @@ export async function GET(request: Request) {
         });
     } catch (error) {
         console.error('Error retrieving whale alerts from KV:', error);
-        return NextResponse.json({ error: 'Failed to retrieve alerts' }, { status: 500 });
+        // Return empty instead of error to prevent client failures
+        return NextResponse.json({
+            alerts: [],
+            total: 0,
+            hasMore: false
+        });
     }
 }
 
 export async function POST(request: Request) {
     try {
+        // Check if KV is configured
+        if (!process.env.KV_REST_API_URL) {
+            console.warn('Vercel KV not configured, skipping storage');
+            return NextResponse.json({
+                message: 'Storage not configured',
+                added: 0,
+                total: 0
+            });
+        }
+
         const newAlerts: WhaleAlert[] = await request.json();
 
         if (!Array.isArray(newAlerts)) {
@@ -78,6 +103,11 @@ export async function POST(request: Request) {
         });
     } catch (error) {
         console.error('Error storing whale alerts to KV:', error);
-        return NextResponse.json({ error: 'Failed to store alerts' }, { status: 500 });
+        // Return success with 0 added instead of error
+        return NextResponse.json({
+            message: 'Storage failed, continuing without persistence',
+            added: 0,
+            total: 0
+        });
     }
 }
