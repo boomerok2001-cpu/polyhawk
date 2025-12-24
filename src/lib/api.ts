@@ -892,3 +892,5 @@ export async function fetchUserPositions(address: string): Promise<any[]> {
         return [];
     }
 }
+
+export const getPortfolio = fetchUserPositions;
