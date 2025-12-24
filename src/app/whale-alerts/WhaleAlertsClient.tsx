@@ -32,53 +32,51 @@ export default function WhaleAlertsClient({ initialAlerts }: WhaleAlertsClientPr
 
     useEffect(() => {
         setIsClient(true);
-        // Load from storage and merge with initial alerts
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-            try {
-                const parsed = JSON.parse(stored);
-                setWhaleAlerts(prev => {
-                    const existingIds = new Set(parsed.map((a: WhaleAlert) => a.id));
-                    const uniqueNew = initialAlerts.filter(a => !existingIds.has(a.id));
-                    const combined = [...uniqueNew, ...parsed]
-                        .sort((a, b) => b.timestamp - a.timestamp)
-                        .slice(0, 1000); // Increased to 1000
 
-                    // Update storage with merged results
-                    localStorage.setItem(STORAGE_KEY, JSON.stringify(combined));
-                    return combined;
-                });
-            } catch (e) {
-                console.error('Failed to parse stored alerts', e);
+        // Load from backend first, fallback to localStorage
+        const loadAlerts = async () => {
+            try {
+                const response = await fetch('/api/whale-alerts-store?limit=500');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.alerts && data.alerts.length > 0) {
+                        setWhaleAlerts(data.alerts);
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(data.alerts));
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.error('Failed to fetch from backend:', err);
             }
-        } else if (initialAlerts.length > 0) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(initialAlerts));
-        }
-    }, [initialAlerts]);
+
+            // Fallback to localStorage
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
+                try {
+                    const parsed = JSON.parse(stored);
+                    setWhaleAlerts(parsed);
+                } catch (e) {
+                    console.error('Failed to parse stored alerts', e);
+                }
+            }
+        };
+
+        loadAlerts();
+    }, []);
 
     const fetchWhaleAlerts = async () => {
         try {
-            const response = await fetch('/api/whale-alerts', { cache: 'no-store' });
+            const response = await fetch('/api/whale-alerts-store?limit=500', { cache: 'no-store' });
             if (!response.ok) return;
 
-            const newAlerts: WhaleAlert[] = await response.json();
+            const data = await response.json();
+            const newAlerts: WhaleAlert[] = data.alerts || [];
 
-            setWhaleAlerts(prev => {
-                const existingIds = new Set(prev.map(a => a.id));
-                const uniqueNew = newAlerts.filter(a => !existingIds.has(a.id));
+            setWhaleAlerts(newAlerts);
 
-                if (uniqueNew.length === 0) return prev;
-
-                const combined = [...uniqueNew, ...prev]
-                    .sort((a, b) => b.timestamp - a.timestamp)
-                    .slice(0, 1000);
-
-                if (typeof window !== 'undefined') {
-                    localStorage.setItem(STORAGE_KEY, JSON.stringify(combined));
-                }
-
-                return combined;
-            });
+            if (typeof window !== 'undefined') {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(newAlerts));
+            }
         } catch (error) {
             console.error('Error fetching whale alerts:', error);
         }
