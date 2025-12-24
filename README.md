@@ -100,4 +100,20 @@ src/
 
 ---
 
+---
+
+## ⚙️ Configuration
+
+### Supabase Setup (Required for Auth & Database)
+
+This project uses **Supabase** for user authentication and data storage.
+
+1.  **Create a Supabase Project**: Go to [supabase.com](https://supabase.com).
+2.  **Environment Variables**: Create a `.env.local` file (or set in Vercel):
+    ```env
+    NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+    ```
+3.  **Database Migration**: Run the SQL schema provided in `scripts/setup-db.js` (or see setup instructions) to create `profiles`, `portfolios`, and `alert_settings` tables.
+
 *Built with ❤️ for the Prediction Market Community.*
