@@ -17,9 +17,7 @@ export default async function NewsPage() {
                 <h1 className={styles.pageTitle} style={{ fontSize: '3.5rem', marginBottom: '1rem', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.1 }}>
                     Search The <span style={{ background: 'linear-gradient(to right, #60a5fa, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Horizon</span>
                 </h1>
-                <p className="text-secondary" style={{ fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
-                    Latest insights, regulation updates, and market movers from across the prediction space.
-                </p>
+
             </div>
 
             <div style={{ display: 'grid', gap: '1.5rem', maxWidth: '1000px', margin: '0 auto' }}>
