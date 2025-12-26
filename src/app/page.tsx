@@ -96,24 +96,7 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Market Stats Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
-        <div style={{ background: 'var(--surface)', padding: '1.25rem', borderRadius: '24px', border: '1px solid var(--border)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Global Volume (24h)</div>
-          <div style={{ fontSize: '2rem', fontWeight: 900, letterSpacing: '-0.02em', color: 'var(--text-main)' }}>${(total24hVol / 1000000).toFixed(1)}M</div>
-          <div className="text-green" style={{ fontSize: '0.85rem', fontWeight: 600 }}>↑ Dynamic Real-time</div>
-        </div>
-        <div style={{ background: 'var(--surface)', padding: '1.25rem', borderRadius: '24px', border: '1px solid var(--border)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Active Markets</div>
-          <div style={{ fontSize: '2rem', fontWeight: 900, letterSpacing: '-0.02em', color: 'var(--text-main)' }}>{totalActiveMarkets.toLocaleString()}</div>
-          <div className="text-primary" style={{ fontSize: '0.85rem', fontWeight: 600 }}>Across 2 Platforms</div>
-        </div>
-        <div style={{ background: 'var(--surface)', padding: '1.25rem', borderRadius: '24px', border: '1px solid var(--border)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Avg Liquidity/Order</div>
-          <div style={{ fontSize: '2rem', fontWeight: 900, letterSpacing: '-0.02em', color: 'var(--text-main)' }}>${(avgLiquidity / 1000).toFixed(1)}k</div>
-          <div className="text-green" style={{ fontSize: '0.85rem', fontWeight: 600 }}>Stable Depth</div>
-        </div>
-      </div>
+
 
       {/* Portfolio & News Dashboard Preview */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem', marginBottom: '5rem' }}>
@@ -203,50 +186,9 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Featured Market Table (Formerly Top Gainers) */}
-      <div style={{ marginBottom: '4rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
-          <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>🚀 Trending</h2>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-          {topGainers.map(market => (
-            <a href={market.url} target="_blank" key={market.id} style={{ textDecoration: 'none' }}>
-              <div className="card-hover" style={{
-                background: 'var(--surface)',
-                border: '1px solid var(--border)',
-                borderRadius: '16px',
-                padding: '1.5rem',
-                height: '100%'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary)' }}></div>
-                    {market.source}
-                  </div>
-                </div>
-                <h3 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '1.5rem', lineHeight: 1.4, color: 'var(--text-main)' }}>
-                  {market.title}
-                </h3>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Yes Price</div>
-                    <div style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)' }}>{(market.yesPrice * 100).toFixed(1)}¢</div>
-                  </div>
-                  <div style={{ textAlign: 'right' }}>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Volume</div>
-                    <div style={{ fontWeight: 600 }}>${(market.volume / 1000).toFixed(1)}k</div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
 
-      {/* Whale Alerts Section (Widget) */}
-      <div style={{ marginBottom: '4rem' }}>
-        <WhaleAlertsWidget initialAlerts={whaleAlertsData} />
-      </div>
+
+
 
 
 
