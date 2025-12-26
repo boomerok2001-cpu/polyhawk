@@ -78,16 +78,7 @@ export default async function Home() {
           Real-Time Prediction <br />
           Market <span className="text-primary">Intelligence</span>
         </h1>
-        <p className="hero-subtitle" style={{
-          color: 'var(--text-secondary)',
-          marginBottom: '2.5rem',
-          maxWidth: '600px',
-          margin: '0 auto 2.5rem',
-          lineHeight: 1.6,
-          fontSize: 'clamp(1rem, 4vw, 1.25rem)'
-        }}>
-          Advanced prediction market insights for smarter trading
-        </p>
+
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href={POLYMARKET_REFERRAL} target="_blank" className="btn btn-primary" style={{ fontSize: '1rem', padding: '0.8rem 1.5rem', flex: '1 1 auto', maxWidth: '300px' }}>
             Polymarket

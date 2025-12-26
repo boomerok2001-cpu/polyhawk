@@ -31,7 +31,7 @@ export default function Navbar() {
                 {/* Contextual Navigation */}
                 <div className={`nav-links-container ${isMenuOpen ? 'open' : ''}`}>
                     <div className="nav-links">
-                        <Link href="/leaderboard" className={`nav-link-v2 ${pathname === '/leaderboard' ? 'active' : ''}`} onClick={closeMenu}>Leaderboard</Link>
+
                         <Link href="/whale-alerts" className={`nav-link-v2 ${pathname === '/whale-alerts' ? 'active' : ''}`} onClick={closeMenu}>Whale Alerts</Link>
                         <Link href="/wallet-checker" className={`nav-link-v2 ${pathname === '/wallet-checker' ? 'active' : ''}`} onClick={closeMenu}>Whales</Link>
                         <Link href="/news" className={`nav-link-v2 ${pathname === '/news' ? 'active' : ''}`} onClick={closeMenu}>News</Link>
