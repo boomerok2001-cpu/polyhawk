@@ -100,14 +100,14 @@ export default function RootLayout({
               lineHeight: 1.6,
               textAlign: 'justify'
             }}>
-              <p style={{ marginBottom: '1rem' }}>IMPORTANT DISCLAIMER:</p>
-              <p>
-                We are not affiliated with anyone and do not offer trading or anything. This is for informational purposes only.
+              <p style={{ marginBottom: '1rem' }}>**IMPORTANT DISCLAIMER:**</p>
+              <p style={{ marginBottom: '1rem' }}>
+                PolyHawk is an independent informational platform and is not affiliated with any prediction market, trading platform, or financial institution. We do not offer trading services, financial products, or investment advice.
               </p>
               <p style={{ marginTop: '0.5rem', opacity: 0.7 }}>
-                All content provided herein our website, hyperlinked sites, associated applications, forums, blogs, social media accounts and other platforms ("Site") is for your general information only, procured from third party sources. We make no warranties of any kind in relation to our content, including but not limited to accuracy and updatedness. No part of the content that we provide constitutes financial advice, legal advice or any other form of advice meant for your specific reliance for any purpose.
+                All content provided herein our website, hyperlinked sites, associated applications, forums, blogs, social media accounts and other platforms ("Site") is for your general information only, procured from third party sources. We make no warranties of any kind in relation to our content, including but not limited to accuracy and updatedness. No part of the content that we provide constitutes financial advice, legal advice or any other form of advice meant for your specific reliance for any purpose. Any use or reliance on our content is solely at your own risk and discretion. You should conduct your own research, review, analyse and verify our content before relying on them. Trading is a highly risky activity that can lead to major losses, please therefore consult your financial advisor before making any decision. No content on our Site is meant to be a solicitation or offer.
               </p>
-              <p style={{ marginTop: '1rem' }}>&copy; {new Date().getFullYear()} Poly Hawk. All rights reserved.</p>
+              <p style={{ marginTop: '1rem' }}>&copy; 2025 Poly Hawk. All rights reserved.</p>
             </div>
           </div>
         </footer>
