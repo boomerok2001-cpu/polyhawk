@@ -143,6 +143,10 @@ export async function fetchNews(): Promise<NewsItem[]> {
 
     // Deduplicate by title
     const uniqueNews = Array.from(new Map(news.map(item => [item.title, item])).values());
+
+    if (uniqueNews.length === 0) return getFallbackNews();
+
+    return uniqueNews;
 }
 
 function getFallbackNews(): NewsItem[] {
