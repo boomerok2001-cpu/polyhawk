@@ -25,11 +25,11 @@ export default function Leaderboard({
     const [timePeriod, setTimePeriod] = useState<'day' | 'week' | 'month' | 'all'>('all');
     const [category, setCategory] = useState<string>('All');
 
-    const periods = [
+    const TIME_FILTERS = [
+        { id: 'all', label: 'All Time' },
         { id: 'day', label: 'Daily' },
         { id: 'week', label: 'Weekly' },
-        { id: 'month', label: 'Monthly' },
-        { id: 'all', label: 'All-Time' }
+        { id: 'month', label: 'Monthly' }
     ];
 
     const categories = ['All', 'Politics', 'Sports', 'Crypto', 'Business'];
@@ -68,7 +68,7 @@ export default function Leaderboard({
                     </h2>
 
                     <div className={styles.periodToggle}>
-                        {periods.map(p => (
+                        {TIME_FILTERS.map(p => (
                             <button
                                 key={p.id}
                                 //@ts-ignore
