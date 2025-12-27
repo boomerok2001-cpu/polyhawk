@@ -20,9 +20,8 @@ const FEATURED_ARTICLES = [
 ];
 
 export default async function Home() {
-  const [polymarketData, kalshiData, news, sportsMarketsData, politicsMarketsData, cryptoMarketsData, newMarketsData, whaleAlertsData] = await Promise.all([
+  const [polymarketData, news, sportsMarketsData, politicsMarketsData, cryptoMarketsData, newMarketsData, whaleAlertsData] = await Promise.all([
     fetchPolymarketTrending(),
-    fetchKalshiMarkets(),
     fetchNews(),
     fetchMarketsByCategory('sports'),
     fetchMarketsByCategory('politics'),
@@ -32,7 +31,7 @@ export default async function Home() {
   ]);
 
   // Aggregate all markets for general stats
-  const allMarkets = [...polymarketData, ...kalshiData].sort((a, b) => b.volume - a.volume);
+  const allMarkets = [...polymarketData].sort((a, b) => b.volume - a.volume);
 
   // Top Gainers (Simulated or High Volume)
   // Since we don't have real 24h change from Gamma summary, we'll use High Liquidity + Volume as "Hot/Gaining"
