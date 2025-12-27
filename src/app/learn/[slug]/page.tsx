@@ -10,7 +10,13 @@ const ARTICLE_IMAGES: Record<string, string> = {
     'identifying-positive-ev': 'https://images.unsplash.com/photo-1504868584819-f8e90526354c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
     'correlation-trading': 'https://images.unsplash.com/photo-1551288049-bbbda536339a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
     'history-of-prediction-markets': 'https://images.unsplash.com/photo-1456324504439-367cef3bafc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-    'hedging-real-world-risks': 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'
+    'hedging-real-world-risks': 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
+    'market-liquidity-explained': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
+    'common-trading-mistakes': 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
+    'understanding-market-odds': 'https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
+    'tax-implications': 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
+    'market-resolution-process': 'https://images.unsplash.com/photo-1450101215322-bf5cd27642fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
+    'building-trading-strategy': 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'
 };
 
 const ARTICLE_CONTENT: Record<string, { title: string; date: string; readTime: string; content: React.ReactNode }> = {
@@ -350,6 +356,280 @@ const ARTICLE_CONTENT: Record<string, { title: string; date: string; readTime: s
 
                 <h2>Summary</h2>
                 <p>Prediction markets are a tool for <strong>radical honesty</strong>. They strip away the "vibes" and the "opinions" and replace them with numbers and truth. Whether you’re an arbitrageur, a hedger, or a historian, you’re part of a movement to make the world’s information more transparent and accurate.</p>
+            </>
+        )
+    },
+    'market-liquidity-explained': {
+        title: 'Market Liquidity Explained',
+        date: 'Dec 27, 2025',
+        readTime: '10 min read',
+        content: (
+            <>
+                <p>When you're trading on prediction markets, one of the most important concepts to understand is liquidity. It can make the difference between a smooth trade and a costly mistake.</p>
+
+                <h2>What Is Liquidity?</h2>
+                <p>Liquidity refers to how easily you can buy or sell shares in a market without significantly affecting the price. A highly liquid market has many buyers and sellers actively trading, which means you can enter or exit positions quickly at fair prices.</p>
+
+                <h2>Why Liquidity Matters</h2>
+                <p>In a liquid market, the spread between the bid (what buyers are willing to pay) and the ask (what sellers want) is narrow. This means you lose less money to the spread when you trade. In illiquid markets, you might see spreads of 5-10 cents or more, which eats into your profits.</p>
+
+                <div style={{ background: 'rgba(239, 68, 68, 0.05)', padding: '1.5rem', borderRadius: '12px', margin: '2rem 0', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
+                    <h3 style={{ marginTop: 0, color: '#ef4444' }}>Example: The Cost of Illiquidity</h3>
+                    <p>Imagine you want to buy shares in a market where the bid is 45¢ and the ask is 55¢. If you buy at 55¢ and immediately want to sell, you'd only get 45¢—a 10¢ loss just from the spread. In a liquid market, that spread might only be 1-2¢.</p>
+                </div>
+
+                <h2>How to Identify Liquid Markets</h2>
+                <ul>
+                    <li><strong>Volume:</strong> Look for markets with high 24-hour trading volume. More volume usually means more liquidity.</li>
+                    <li><strong>Tight Spreads:</strong> Check the difference between bid and ask prices. Smaller spreads indicate better liquidity.</li>
+                    <li><strong>Order Book Depth:</strong> A deep order book with many orders at various price levels shows strong liquidity.</li>
+                </ul>
+
+                <h2>Trading in Illiquid Markets</h2>
+                <p>Sometimes you might find an opportunity in a less liquid market. If you do trade there, use limit orders instead of market orders. This lets you set your price and avoid paying excessive spreads. Be patient—your order might take longer to fill, but you'll get a better price.</p>
+            </>
+        )
+    },
+    'common-trading-mistakes': {
+        title: 'Common Trading Mistakes to Avoid',
+        date: 'Dec 27, 2025',
+        readTime: '12 min read',
+        content: (
+            <>
+                <p>Every trader makes mistakes, but learning from common pitfalls can save you significant money and frustration. Here are the most frequent errors new prediction market traders make.</p>
+
+                <h2>Mistake #1: Chasing Pumps</h2>
+                <p>You see a market suddenly jump from 30¢ to 70¢ and think "I need to get in on this!" By the time you buy, the move is often over, and you're left holding shares at the peak. The smart money already bought at 30¢ and is now selling to you at 70¢.</p>
+
+                <h2>Mistake #2: Ignoring the Spread</h2>
+                <p>Many beginners don't realize that buying at the ask and selling at the bid means you start every trade at a loss. In illiquid markets, this can be 5-10% of your position. Always check the spread before trading.</p>
+
+                <h2>Mistake #3: Overtrading</h2>
+                <p>Trading too frequently racks up fees and spreads. Every trade has a cost, even if it's small. Professional traders are selective—they wait for high-probability setups rather than trading every market they see.</p>
+
+                <div style={{ background: 'rgba(16, 185, 129, 0.05)', padding: '1.5rem', borderRadius: '12px', margin: '2rem 0', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                    <h3 style={{ marginTop: 0, color: '#10b981' }}>The 80/20 Rule</h3>
+                    <p>Often, 80% of your profits will come from 20% of your trades. Focus on quality over quantity. Wait for the trades where you have a genuine edge.</p>
+                </div>
+
+                <h2>Mistake #4: Not Having an Exit Plan</h2>
+                <p>You buy shares at 40¢ thinking they'll go to 80¢. They hit 75¢, and you get greedy waiting for 80¢. Then news breaks, and they crash to 20¢. Always have a profit target and a stop-loss level before you enter a trade.</p>
+
+                <h2>Mistake #5: Emotional Trading</h2>
+                <p>Trading based on what you want to happen rather than what's likely to happen is a recipe for losses. Your political beliefs, favorite sports team, or personal hopes should never influence your trading decisions. The market doesn't care about your feelings.</p>
+
+                <h2>Mistake #6: Ignoring Resolution Criteria</h2>
+                <p>Always read how a market will be resolved before trading. Some markets have specific criteria that might not match your interpretation. A market on "Will X happen by December 31st?" is very different from "Will X happen in December?"</p>
+            </>
+        )
+    },
+    'understanding-market-odds': {
+        title: 'Understanding Market Odds',
+        date: 'Dec 27, 2025',
+        readTime: '8 min read',
+        content: (
+            <>
+                <p>If you're new to prediction markets, the percentage numbers can be confusing. Let's break down exactly what they mean and how to interpret them.</p>
+
+                <h2>The Basics: Price Equals Probability</h2>
+                <p>In prediction markets, the price of a share directly represents the market's estimated probability of an event occurring. If a "Yes" share costs 65¢, the market believes there's a 65% chance the event will happen.</p>
+
+                <h2>How Payouts Work</h2>
+                <p>Every "Yes" share pays out exactly $1.00 if the event occurs, and $0.00 if it doesn't. This binary structure makes the math simple:</p>
+                <ul>
+                    <li>Buy at 65¢, event happens → You get $1.00 (35¢ profit)</li>
+                    <li>Buy at 65¢, event doesn't happen → You get $0.00 (65¢ loss)</li>
+                </ul>
+
+                <div style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '2rem', borderRadius: '16px', margin: '2rem 0', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+                    <h3 style={{ marginTop: 0, color: 'var(--primary)' }}>Quick Math: Calculating Your ROI</h3>
+                    <p>To calculate your potential return on investment:</p>
+                    <p><strong>ROI = (1.00 - Purchase Price) / Purchase Price × 100%</strong></p>
+                    <p>Example: Buying at 40¢ gives you (1.00 - 0.40) / 0.40 = 150% ROI if you win.</p>
+                </div>
+
+                <h2>Reading Implied Probability</h2>
+                <p>The current price tells you what the crowd thinks, but it's not always right. If you believe the true probability is higher than the market price, that's a buying opportunity. If you think it's lower, you might want to sell or buy "No" shares.</p>
+
+                <h2>Understanding "No" Shares</h2>
+                <p>Some platforms let you buy "No" shares, which pay out if the event doesn't happen. The price of "Yes" and "No" shares should always add up to approximately $1.00 (minus fees). If "Yes" is 70¢, "No" should be around 30¢.</p>
+
+                <h2>When Odds Change</h2>
+                <p>Prices fluctuate based on new information, trading volume, and market sentiment. A sudden price jump from 40¢ to 70¢ means new information has made the event much more likely. Understanding why prices move helps you make better trading decisions.</p>
+            </>
+        )
+    },
+    'tax-implications': {
+        title: 'Tax Implications of Prediction Market Trading',
+        date: 'Dec 27, 2025',
+        readTime: '14 min read',
+        content: (
+            <>
+                <p><strong>Disclaimer:</strong> This article provides general information only and should not be considered tax advice. Tax laws vary by jurisdiction and change frequently. Always consult with a qualified tax professional about your specific situation.</p>
+
+                <h2>Are Prediction Market Gains Taxable?</h2>
+                <p>In most jurisdictions, yes. Profits from prediction market trading are generally considered taxable income. The specific classification (capital gains, gambling income, or other) depends on your country's tax laws and how you trade.</p>
+
+                <h2>United States Tax Treatment</h2>
+                <p>In the US, the tax treatment of prediction markets is still evolving. Here are the main considerations:</p>
+
+                <h3>Capital Gains vs. Gambling Income</h3>
+                <p>If you're trading on a regulated platform like Kalshi, your gains may be treated as capital gains. This is generally favorable because you can offset gains with losses. If trading is considered gambling, you can still deduct losses, but only up to the amount of your winnings.</p>
+
+                <h3>Short-Term vs. Long-Term</h3>
+                <p>Most prediction market trades are held for less than a year, making them short-term capital gains, which are taxed at your ordinary income rate. Long-term capital gains (assets held over a year) get preferential tax rates, but this rarely applies to prediction markets.</p>
+
+                <div style={{ background: 'rgba(255,165,0,0.05)', padding: '1.5rem', borderRadius: '12px', margin: '2rem 0', border: '1px solid rgba(255,165,0,0.2)' }}>
+                    <h3 style={{ marginTop: 0, color: '#ffa500' }}>Record Keeping Is Critical</h3>
+                    <p>Keep detailed records of every trade: date, amount, price, fees, and outcome. Many platforms don't provide comprehensive tax documents, so you'll need to track this yourself. Consider using a spreadsheet or specialized tax software.</p>
+                </div>
+
+                <h2>Offshore Platforms</h2>
+                <p>Trading on offshore platforms like Polymarket doesn't exempt you from taxes. US citizens must report worldwide income. The lack of official tax forms from these platforms makes record-keeping even more important.</p>
+
+                <h2>Crypto Considerations</h2>
+                <p>If you're using cryptocurrency (like USDC) to trade, you may have additional tax obligations. Converting USD to USDC and back can trigger taxable events. Each conversion might need to be reported separately.</p>
+
+                <h2>International Traders</h2>
+                <p>Tax treatment varies significantly by country. Some jurisdictions treat prediction market trading as gambling (which may be tax-free), others as investment income, and some have specific regulations for crypto-based platforms. Research your local laws or consult a tax professional.</p>
+
+                <h2>When to Seek Professional Help</h2>
+                <p>Consider consulting a tax professional if you:</p>
+                <ul>
+                    <li>Have significant trading profits (over $10,000)</li>
+                    <li>Trade frequently (hundreds of transactions per year)</li>
+                    <li>Use multiple platforms or cryptocurrencies</li>
+                    <li>Are unsure about your reporting obligations</li>
+                </ul>
+            </>
+        )
+    },
+    'market-resolution-process': {
+        title: 'How Markets Are Resolved',
+        date: 'Dec 27, 2025',
+        readTime: '10 min read',
+        content: (
+            <>
+                <p>Understanding how prediction markets are resolved is crucial for avoiding disputes and knowing when you'll get paid. Let's walk through the entire process.</p>
+
+                <h2>What Is Market Resolution?</h2>
+                <p>Resolution is the process of determining the outcome of a prediction market and distributing payouts to winning traders. Once a market resolves, "Yes" shares either become worth $1.00 (if the event occurred) or $0.00 (if it didn't).</p>
+
+                <h2>Who Decides the Outcome?</h2>
+                <p>Different platforms use different resolution mechanisms:</p>
+
+                <h3>Centralized Resolution</h3>
+                <p>On platforms like Kalshi, the platform itself resolves markets based on predetermined criteria and trusted data sources. They typically use official sources like government agencies, major news outlets, or specific data providers.</p>
+
+                <h3>Decentralized Resolution</h3>
+                <p>Some platforms use decentralized oracle systems where multiple parties vote on the outcome. This can be more resistant to manipulation but may take longer and occasionally lead to disputes.</p>
+
+                <div style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '2rem', borderRadius: '16px', margin: '2rem 0', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+                    <h3 style={{ marginTop: 0, color: 'var(--primary)' }}>Always Read the Resolution Criteria</h3>
+                    <p>Before trading, carefully read how the market will be resolved. The exact wording matters. "Will X happen in 2025?" is different from "Will X happen by December 31, 2025, 11:59 PM EST?"</p>
+                </div>
+
+                <h2>The Resolution Timeline</h2>
+                <p>Markets typically follow this timeline:</p>
+                <ol>
+                    <li><strong>Event Occurs (or Deadline Passes):</strong> The real-world event happens or the market's deadline is reached.</li>
+                    <li><strong>Verification Period:</strong> The platform verifies the outcome using specified sources (usually 24-72 hours).</li>
+                    <li><strong>Resolution:</strong> The market is officially resolved, and shares are converted to their final value.</li>
+                    <li><strong>Payout:</strong> Winning shares are paid out (usually immediately or within 24 hours).</li>
+                </ol>
+
+                <h2>What Happens in Disputes?</h2>
+                <p>Sometimes the outcome isn't clear-cut. Maybe the resolution criteria were ambiguous, or there's conflicting information from different sources. Here's what typically happens:</p>
+
+                <h3>Review Period</h3>
+                <p>Most platforms have a dispute or review period where traders can challenge the resolution. You'll need to provide evidence supporting your position.</p>
+
+                <h3>Platform Decision</h3>
+                <p>The platform reviews the evidence and makes a final determination. On centralized platforms, this decision is usually final. On decentralized platforms, there may be additional voting rounds.</p>
+
+                <h3>Invalid/Ambiguous Markets</h3>
+                <p>In rare cases where the outcome is truly ambiguous or the event didn't occur as specified, markets may be resolved as "invalid" or "ambiguous." In these cases, all traders typically get their money back regardless of which side they took.</p>
+
+                <h2>Tips for Avoiding Resolution Issues</h2>
+                <ul>
+                    <li>Only trade markets with clear, objective resolution criteria</li>
+                    <li>Avoid markets that depend on subjective judgments</li>
+                    <li>Check what sources will be used for resolution</li>
+                    <li>Be wary of markets with distant resolution dates—criteria can become outdated</li>
+                </ul>
+            </>
+        )
+    },
+    'building-trading-strategy': {
+        title: 'Building Your Trading Strategy',
+        date: 'Dec 27, 2025',
+        readTime: '16 min read',
+        content: (
+            <>
+                <p>Random trading is gambling. Systematic trading is a skill. Here's how to develop a strategy that gives you an edge in prediction markets.</p>
+
+                <h2>Step 1: Define Your Edge</h2>
+                <p>An "edge" is something you know or can do that most other traders can't. Without an edge, you're just gambling. Common edges include:</p>
+                <ul>
+                    <li><strong>Domain Expertise:</strong> Deep knowledge of a specific industry or topic</li>
+                    <li><strong>Speed:</strong> Ability to react to news faster than others</li>
+                    <li><strong>Data Analysis:</strong> Using statistical models to find mispriced markets</li>
+                    <li><strong>Arbitrage:</strong> Finding price discrepancies between platforms</li>
+                </ul>
+
+                <h2>Step 2: Choose Your Markets</h2>
+                <p>Don't try to trade everything. Focus on markets where your edge applies. If you're a crypto expert, stick to crypto-related markets. If you're great at analyzing polls, focus on political markets.</p>
+
+                <div style={{ background: 'rgba(16, 185, 129, 0.05)', padding: '1.5rem', borderRadius: '12px', margin: '2rem 0', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                    <h3 style={{ marginTop: 0, color: '#10b981' }}>Specialization Beats Diversification</h3>
+                    <p>It's better to be an expert in one category of markets than a novice in ten. Deep knowledge compounds over time.</p>
+                </div>
+
+                <h2>Step 3: Set Entry and Exit Rules</h2>
+                <p>Define exactly when you'll enter and exit trades. Vague rules like "buy when it feels right" lead to emotional decisions. Instead, use specific criteria:</p>
+
+                <h3>Entry Rules Example</h3>
+                <ul>
+                    <li>Only trade markets with volume over $100k</li>
+                    <li>Only buy when my analysis shows at least 15% edge</li>
+                    <li>Never risk more than 3% of bankroll on one trade</li>
+                </ul>
+
+                <h3>Exit Rules Example</h3>
+                <ul>
+                    <li>Take profit at 50% gain or when edge disappears</li>
+                    <li>Cut losses at 30% down</li>
+                    <li>Always exit 24 hours before resolution to avoid last-minute volatility</li>
+                </ul>
+
+                <h2>Step 4: Position Sizing</h2>
+                <p>How much you bet on each trade matters as much as which trades you take. Use a consistent position sizing method:</p>
+
+                <h3>Fixed Percentage</h3>
+                <p>Risk the same percentage of your bankroll on every trade (e.g., 2%). This automatically scales your bets as your account grows or shrinks.</p>
+
+                <h3>Kelly Criterion</h3>
+                <p>A mathematical formula that calculates optimal bet size based on your edge and odds. Most pros use "Half Kelly" to reduce volatility.</p>
+
+                <h2>Step 5: Track and Analyze</h2>
+                <p>Keep a trading journal with every trade you make:</p>
+                <ul>
+                    <li>Date and time</li>
+                    <li>Market and position</li>
+                    <li>Entry and exit prices</li>
+                    <li>Reasoning for the trade</li>
+                    <li>Outcome and lessons learned</li>
+                </ul>
+
+                <p>Review your journal monthly to identify patterns. Which types of trades are most profitable? Where do you make mistakes? Continuous improvement comes from honest self-assessment.</p>
+
+                <h2>Step 6: Adapt and Evolve</h2>
+                <p>Markets change. What worked last year might not work today. Stay flexible and be willing to adjust your strategy when the data shows it's no longer effective. The best traders are always learning and evolving.</p>
+
+                <div style={{ background: 'rgba(239, 68, 68, 0.05)', padding: '1.5rem', borderRadius: '12px', margin: '2rem 0', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
+                    <h3 style={{ marginTop: 0, color: '#ef4444' }}>Warning: Backtesting Isn't Everything</h3>
+                    <p>Just because a strategy worked in the past doesn't guarantee future success. Markets evolve, and past performance doesn't predict future results. Always start with small positions when testing a new strategy.</p>
+                </div>
             </>
         )
     }

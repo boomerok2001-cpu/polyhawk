@@ -82,6 +82,48 @@ const ARTICLES = [
         category: 'Advanced',
         readTime: '18 min',
         description: 'Leveraging correlations between crypto assets and specific prediction market outcomes.'
+    },
+    {
+        slug: 'market-liquidity-explained',
+        title: 'Market Liquidity Explained',
+        category: 'Basics',
+        readTime: '10 min',
+        description: 'Understanding what liquidity means in prediction markets and why it matters for your trades.'
+    },
+    {
+        slug: 'common-trading-mistakes',
+        title: 'Common Trading Mistakes to Avoid',
+        category: 'Strategy',
+        readTime: '12 min',
+        description: 'Learn from the most common pitfalls that trip up new prediction market traders.'
+    },
+    {
+        slug: 'understanding-market-odds',
+        title: 'Understanding Market Odds',
+        category: 'Basics',
+        readTime: '8 min',
+        description: 'How to read and interpret probability percentages in prediction markets.'
+    },
+    {
+        slug: 'tax-implications',
+        title: 'Tax Implications of Prediction Market Trading',
+        category: 'Guides',
+        readTime: '14 min',
+        description: 'Basic overview of tax considerations when trading on prediction markets.'
+    },
+    {
+        slug: 'market-resolution-process',
+        title: 'How Markets Are Resolved',
+        category: 'Guides',
+        readTime: '10 min',
+        description: 'Understanding the settlement process and what happens when disputes arise.'
+    },
+    {
+        slug: 'building-trading-strategy',
+        title: 'Building Your Trading Strategy',
+        category: 'Strategy',
+        readTime: '16 min',
+        description: 'A framework for developing your own systematic approach to prediction markets.'
     }
 ];
 
