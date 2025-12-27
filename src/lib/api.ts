@@ -67,189 +67,92 @@ export interface WhaleAlert {
 
 
 export async function fetchNews(): Promise<NewsItem[]> {
-    const apiKey = process.env.NEWS_API_KEY;
+    const apiKey = process.env.CRYPTOPANIC_API_KEY;
+    const news: NewsItem[] = [];
 
     if (!apiKey) {
-        console.warn('NEWS_API_KEY is missing. Skipping NewsAPI fetch.');
+        console.warn('CRYPTOPANIC_API_KEY is missing. Using generic events as news.');
+        return getFallbackNews();
     }
 
     try {
-        const news: NewsItem[] = [];
+        // CryptoPanic API - Filter by 'hot' or 'rising' and specific currencies if needed, or public 'panic' / 'all'
+        // Using 'kind: news' and 'filter: hot'
+        const url = `https://cryptopanic.com/api/v1/posts/?auth_token=${apiKey}&public=true&filter=hot&kind=news`;
 
-        // 1. Fetch from NewsAPI.org (Premium Source) - DISABLED per user request
-        if (false && apiKey) {
-            try {
-                // Added domains and keywords for broader coverage including Arkham
-                const newsApiUrl = `https://newsapi.org/v2/everything?q=(polymarket OR "prediction market" OR "Arkham Intelligence" OR "crypto betting")&domains=coindesk.com,theblock.co,cointelegraph.com,forbes.com,bloomberg.com&sortBy=publishedAt&pageSize=20&apiKey=${apiKey}`;
-                const apiResponse = await fetch(newsApiUrl, { next: { revalidate: 60 } });
+        const response = await fetch(url, { next: { revalidate: 300 } }); // Cache for 5 min
 
-                if (apiResponse.ok) {
-                    const apiData = await apiResponse.json();
-
-                    apiData.articles.forEach((article: any, index: number) => {
-                        const date = new Date(article.publishedAt);
-                        const hoursAgo = (Date.now() - date.getTime()) / (1000 * 60 * 60);
-
-                        // Strict 24h Filter
-                        if (hoursAgo > 24) return;
-
-                        news.push({
-                            id: `newsapi-${index}`,
-                            title: article.title,
-                            source: article.source.name,
-                            time: hoursAgo < 1 ? 'Just now' : `${Math.floor(hoursAgo)}h ago`,
-                            category: 'Market',
-                            url: article.url,
-                            snippet: article.description?.substring(0, 100) + '...' || 'Latest update.',
-                            sentiment: 'Neutral',
-                            imageUrl: article.urlToImage || 'https://images.unsplash.com/photo-1621504450168-38f64731b667?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
-                        });
-                    });
-                }
-            } catch (apiError) {
-                console.error('NewsAPI Fetch Failed', apiError);
-            }
+        if (!response.ok) {
+            throw new Error(`CryptoPanic Fetch Failed: ${response.status}`);
         }
 
-        // 2. Fetch RSS Feeds (CoinDesk, The Block, Cointelegraph)
-        const rssFeeds = [
-            { source: 'CoinDesk', url: 'https://www.coindesk.com/arc/outboundfeeds/rss/?outputType=xml' },
-            { source: 'The Block', url: 'https://www.theblock.co/rss.xml' },
-            { source: 'Cointelegraph', url: 'https://cointelegraph.com/rss' },
-            { source: 'Decrypt', url: 'https://decrypt.co/feed' },
-            { source: 'CryptoSlate', url: 'https://cryptoslate.com/feed/' }
-        ];
+        const data = await response.json();
 
-        for (const feed of rssFeeds) {
-            try {
-                const response = await fetch(feed.url, {
-                    next: { revalidate: 60 },
-                    signal: AbortSignal.timeout(5000),
-                    headers: {
-                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-                    }
-                });
-                if (!response.ok) continue;
-                const text = await response.ok ? await response.text() : '';
-                if (!text) continue;
+        if (data.results && Array.isArray(data.results)) {
+            data.results.forEach((item: any) => {
+                // Calculate time ago
+                const date = new Date(item.created_at);
+                const hoursAgo = (Date.now() - date.getTime()) / (1000 * 60 * 60);
 
-                const itemRegex = /<item>[\s\S]*?<\/item>/g;
-                const items = text.match(itemRegex)?.slice(0, 12) || [];
+                // Strict 48h Filter (CryptoPanic items can be slightly older but still relevant "hot" items)
+                if (hoursAgo > 48) return;
 
-                items.forEach((item, index) => {
-                    const titleMatch = item.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/) || item.match(/<title>(.*?)<\/title>/);
-                    const linkMatch = item.match(/<link>(.*?)<\/link>/);
-                    const dateMatch = item.match(/<pubDate>(.*?)<\/pubDate>/);
-                    const descMatch = item.match(/<description>[\s\S]*?<!\[CDATA\[(.*?)\]\]>/) || item.match(/<description>(.*?)<\/description>/);
-                    const mediaMatch = item.match(/media:content[^>]*url="(.*?)"/) || item.match(/<enclosure[^>]*url="(.*?)"/) || item.match(/<img[^>]*src="(.*?)"/);
-
-                    if (titleMatch && linkMatch) {
-                        const title = titleMatch[1].replace(/<!\[CDATA\[(.*?)\]\]>/g, '$1').replace(/&amp;/g, '&');
-                        const date = dateMatch ? new Date(dateMatch[1]) : new Date();
-                        const hoursAgo = (Date.now() - date.getTime()) / (1000 * 60 * 60);
-
-                        // Strict 24h Filter
-                        if (hoursAgo > 24) return;
-
-                        news.push({
-                            id: `${feed.source.toLowerCase().replace(' ', '-')}-${index}-${date.getTime()}`,
-                            title: title,
-                            source: feed.source,
-                            time: hoursAgo < 1 ? 'Just now' : `${Math.floor(hoursAgo)}h ago`,
-                            category: title.includes('Bitcoin') || title.includes('BTC') ? 'Bitcoin' : 'Market',
-                            url: linkMatch[1],
-                            snippet: descMatch ? descMatch[1].replace(/<!\[CDATA\[(.*?)\]\]>/g, '$1').replace(/<[^>]*>/g, '').substring(0, 160) + '...' : `Latest intelligence from ${feed.source}.`,
-                            sentiment: title.toLowerCase().includes('bull') || title.toLowerCase().includes('rise') || title.toLowerCase().includes('surge') ? 'Positive' : 'Neutral',
-                            imageUrl: mediaMatch ? mediaMatch[1] : 'https://images.unsplash.com/photo-1621504450168-38f64731b667?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
-                        });
-                    }
-                });
-            } catch (err) {
-                console.error(`${feed.source} Fetch Failed`, err);
-            }
-        }
-
-        // 3. Fetch Polymarket "New" events acting as news (limited to avoid dominating feed)
-        try {
-            const polyResponse = await fetch('https://gamma-api.polymarket.com/events?limit=3&active=true&closed=false&order=volume24hr&ascending=false', { next: { revalidate: 60 } });
-            const polyData = await polyResponse.json();
-
-            polyData.forEach((event: any) => {
                 news.push({
-                    id: `poly-news-${event.id}`,
-                    title: `Live Market: ${event.title}`,
-                    source: 'Polymarket',
-                    time: 'Live',
-                    category: 'Signal',
-                    url: getPolymarketUrl(`event/${event.slug}`),
-                    snippet: `High activity detected on ${event.title}. Strategic positioning opportunity identified in ${event.tags?.[0]?.label || 'prediction'} markets.`,
-                    sentiment: 'Neutral',
-                    imageUrl: event.image || 'https://images.unsplash.com/photo-1611974765270-ca1258634369?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+                    id: `cp-${item.id}`,
+                    title: item.title,
+                    source: item.domain || item.source?.title || 'CryptoPanic',
+                    time: hoursAgo < 1 ? 'Just now' : `${Math.floor(hoursAgo)}h ago`,
+                    category: 'Market', // CryptoPanic is mostly market/crypto news
+                    url: item.url, // This is the CryptoPanic link which usually redirects or shows source
+                    snippet: 'Trending news from the crypto prediction space.', // CryptoPanic doesn't always provide descriptions in free tier easily
+                    sentiment: item.votes && (item.votes.positive > item.votes.negative) ? 'Positive' : 'Neutral',
+                    imageUrl: 'https://images.unsplash.com/photo-1621504450168-38f64731b667?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' // No images in free tier usually
                 });
             });
-        } catch (e) { /* ignore */ }
-
-        // Deduplicate by title
-        const uniqueNews = Array.from(new Map(news.map(item => [item.title, item])).values());
-
-        // Sort by recency (shuffling slightly for a live feel, but favoring newer)
-        if (uniqueNews.length === 0) {
-            return [
-                {
-                    id: 'fallback-1',
-                    title: 'Prediction Markets Continue to Grow',
-                    source: 'Poly Gecko',
-                    time: 'Recently',
-                    category: 'General',
-                    url: '#',
-                    snippet: 'Markets are heating up. New opportunities are emerging in the prediction space as adoption grows.',
-                    sentiment: 'Positive',
-                    imageUrl: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
-                },
-                {
-                    id: 'fallback-2',
-                    title: 'Global Markets Volatility Increases',
-                    source: 'Poly Gecko',
-                    time: 'Recently',
-                    category: 'Macro',
-                    url: '#',
-                    snippet: 'Traders are watching closely as volatility indices spike across major global financial centers.',
-                    sentiment: 'Neutral',
-                    imageUrl: 'https://images.unsplash.com/photo-1611974765270-ca1258634369?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
-                }
-            ];
         }
-
-        return uniqueNews.sort((a, b) => {
-            if (a.time === 'Live') return -1;
-            if (b.time === 'Live') return 1;
-
-            // Convert time strings back to roughly comparable values for sorting
-            const getMinutes = (t: string) => {
-                if (t === 'Just now') return 0;
-                if (t.includes('h ago')) return parseInt(t) * 60;
-                if (t.includes('d ago')) return parseInt(t) * 1440;
-                return 9999;
-            };
-
-            return getMinutes(a.time) - getMinutes(b.time);
-        });
     } catch (error) {
-        console.error('FetchNews Error', error);
-        return [
-            {
-                id: 'fallback-1',
-                title: 'Prediction Markets Continue to Grow',
-                source: 'Poly Gecko',
-                time: 'Recently',
-                category: 'General',
-                url: '#',
-                snippet: 'Markets are heating up.',
-                sentiment: 'Positive',
-                imageUrl: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
-            }
-        ];
+        console.error('CryptoPanic Error:', error);
     }
+
+    // 2. Fetch Polymarket "New" events acting as news (limited)
+    try {
+        const polyResponse = await fetch('https://gamma-api.polymarket.com/events?limit=3&active=true&closed=false&order=volume24hr&ascending=false', { next: { revalidate: 60 } });
+        const polyData = await polyResponse.json();
+
+        polyData.forEach((event: any) => {
+            news.push({
+                id: `poly-news-${event.id}`,
+                title: `Live Market: ${event.title}`,
+                source: 'Polymarket',
+                time: 'Live',
+                category: 'Signal',
+                url: getPolymarketUrl(`event/${event.slug}`),
+                snippet: `High activity market: ${event.tags?.[0]?.label || 'Prediction'}.`,
+                sentiment: 'Neutral',
+                imageUrl: event.image || 'https://images.unsplash.com/photo-1611974765270-ca1258634369?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+            });
+        });
+    } catch (e) { /* ignore */ }
+
+    if (news.length === 0) return getFallbackNews();
+
+    return news;
+}
+
+function getFallbackNews(): NewsItem[] {
+    return [
+        {
+            id: 'fallback-1',
+            title: 'Prediction Markets Continue to Grow',
+            source: 'PolyHawk',
+            time: 'Recently',
+            category: 'General',
+            url: '#',
+            snippet: 'Markets are heating up. New opportunities are emerging in the prediction space.',
+            sentiment: 'Positive',
+            imageUrl: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+        }
+    ];
 }
 
 export async function fetchPolymarketTrending(): Promise<Market[]> {
@@ -311,15 +214,8 @@ export async function fetchMarketsByCategory(category: string): Promise<Market[]
         const polyData = await polyResponse.json();
         const polyMarkets = mapPolymarketData(polyData);
 
-        // Fetch from Kalshi (filter by category after fetching)
-        const kalshiMarkets = await fetchKalshiMarkets();
-        const kalshiFiltered = kalshiMarkets.filter(m =>
-            m.category.toLowerCase().includes(category.toLowerCase()) ||
-            category.toLowerCase().includes(m.category.toLowerCase())
-        ).slice(0, 20);
-
-        // Merge and sort by volume
-        return [...polyMarkets, ...kalshiFiltered]
+        // Sort by volume
+        return polyMarkets
             .sort((a, b) => b.volume - a.volume)
             .slice(0, 50);
     } catch (e) {
@@ -329,43 +225,7 @@ export async function fetchMarketsByCategory(category: string): Promise<Market[]
     }
 }
 
-export async function fetchKalshiMarkets(): Promise<Market[]> {
-    // ... (fetch implementation)
-    // inside the try:
-    try {
-        const response = await fetch('https://api.elections.kalshi.com/trade-api/v2/markets?limit=100&status=active', {
-            cache: 'no-store',
-            signal: AbortSignal.timeout(5000)
-        });
 
-        if (!response.ok) throw new Error("Fallback needed");
-
-        const data = await response.json();
-        if (!data.markets) return [];
-
-        return data.markets.map((market: any) => {
-            return {
-                id: market.ticker,
-                title: market.title,
-                category: market.category,
-                source: 'Kalshi',
-                yesPrice: (market.yes_ask || 0) / 100,
-                noPrice: (market.no_ask || 0) / 100,
-                volume: market.volume || 0,
-                liquidity: market.open_interest || 0,
-                change24h: 0,
-                url: `https://kalshi.com/markets/${market.ticker}`
-            };
-        });
-    } catch (error) {
-        // Fallback
-        return [
-            { id: 'KX-FED-RATE', title: 'Fed Rates Unchanged?', category: 'Economics', source: 'Kalshi', yesPrice: 0.85, noPrice: 0.15, volume: 150000, liquidity: 50000, change24h: 0, url: 'https://kalshi.com' },
-            { id: 'KX-GDP-US', title: 'US GDP Growth > 2%?', category: 'Economics', source: 'Kalshi', yesPrice: 0.60, noPrice: 0.40, volume: 80000, liquidity: 25000, change24h: 0, url: 'https://kalshi.com' },
-            { id: 'KX-CPI', title: 'CPI < 3.0%?', category: 'Economics', source: 'Kalshi', yesPrice: 0.30, noPrice: 0.70, volume: 220000, liquidity: 100000, change24h: 0, url: 'https://kalshi.com' },
-        ];
-    }
-}
 
 export async function fetchNewMarkets(): Promise<Market[]> {
     try {
@@ -374,12 +234,8 @@ export async function fetchNewMarkets(): Promise<Market[]> {
         const polyData = await polyResponse.json();
         const polyMarkets = mapPolymarketData(polyData);
 
-        // Fetch from Kalshi and assume recent ones are "new"
-        const kalshiMarkets = await fetchKalshiMarkets();
-        const recentKalshi = kalshiMarkets.slice(0, 10);
-
-        // Merge both sources
-        return [...polyMarkets, ...recentKalshi]
+        // Retrieve only Polymarket
+        return polyMarkets
             .sort((a, b) => b.volume - a.volume)
             .slice(0, 25);
     } catch (e) {
@@ -523,102 +379,27 @@ export interface ArbitrageOpportunity {
 }
 
 export async function findArbitrageOpportunities(mode: 'demo' | 'strict' = 'demo'): Promise<ArbitrageOpportunity[]> {
-    const [poly, kalshi] = await Promise.all([
-        fetchPolymarketTrending(),
-        fetchKalshiMarkets()
-    ]);
-
+    const poly = await fetchPolymarketTrending();
     const opportunities: ArbitrageOpportunity[] = [];
 
-    // STRICT MODE: Real mathematical arbitrage only
+    // STRICT MODE: No arbitrage possible without second exchange
     if (mode === 'strict') {
-        for (const p of poly) {
-            for (const k of kalshi) {
-                // strict matching logic (share significant words)
-                const pWords = p.title.toLowerCase().split(' ').filter(w => w.length > 3);
-                const kWords = k.title.toLowerCase().split(' ').filter(w => w.length > 3);
-                const intersection = pWords.filter(w => kWords.includes(w));
-
-                if (intersection.length >= 2) { // Must share at least 2 words
-                    // Check for price discrepancy
-                    // Arbitrage exists if:
-                    // 1. Buy Yes on A + Buy No on B < 1.00
-                    // 2. Buy No on A + Buy Yes on B < 1.00
-
-                    const cost1 = p.yesPrice + (k.noPrice || (1 - k.yesPrice));
-                    const cost2 = p.noPrice + (k.yesPrice || (1 - k.noPrice));
-
-                    if (cost1 < 0.995) { // 0.5% buffer for fees (more lenient)
-                        opportunities.push({
-                            market1: { ...p, yesPrice: p.yesPrice }, // Buy Yes
-                            market2: { ...k, noPrice: k.noPrice },   // Buy No
-                            spread: (1 - cost1) * 100,
-                            event: `${p.title} (Yes/No)`
-                        });
-                    }
-                    if (cost2 < 0.995) {
-                        opportunities.push({
-                            market1: { ...p, noPrice: p.noPrice },   // Buy No
-                            market2: { ...k, yesPrice: k.yesPrice }, // Buy Yes
-                            spread: (1 - cost2) * 100,
-                            event: `${p.title} (No/Yes)`
-                        });
-                    }
-                }
-            }
-        }
-        return opportunities;
+        return [];
     }
 
-    // DEMO MODE (Existing Logic)
-    // Relaxed matching to show "potential" opportunities for UI demonstration
-    const maxOpp = 15; // Increased from 5
-    let count = 0;
+    // DEMO MODE: Simulate opportunities for UI
+    const maxOpp = 5;
 
-    for (const p of poly) {
-        if (count >= maxOpp) break;
+    // Create mock opportunities from high-volume Polymarket events
+    for (let i = 0; i < Math.min(poly.length, maxOpp); i++) {
+        const m = poly[i];
+        const spread = Math.random() * 3 + 0.5;
 
-        // Try strict match first
-        for (const k of kalshi) {
-            const pWords = p.title.toLowerCase().split(' ').filter(w => w.length > 3);
-            const kWords = k.title.toLowerCase().split(' ').filter(w => w.length > 3);
-            const intersection = pWords.filter(w => kWords.includes(w));
-
-            // MATCH FOUND or Forced Match for demo if categories align
-            if (intersection.length >= 1 || (p.category === k.category && Math.random() > 0.8)) {
-
-                // Demo: Force a spread that looks real
-                // We'll just generate a "spread" based on the fact we found a match
-                // In reality, we'd calculate p.yesPrice + k.noPrice < 1.0
-
-                const spread = Math.random() * 5 + 1; // 1% to 6% profit
-
-                opportunities.push({
-                    market1: p,
-                    market2: k,
-                    spread: spread,
-                    event: p.title // Use Poly title as main
-                });
-                count++;
-                break; // One match per poly market
-            }
-        }
-    }
-
-    // Always ensure at least a few items for the user
-    if (opportunities.length < 3) {
-        // Add existing fallback plus a few more
         opportunities.push({
-            market1: { ...poly[0], yesPrice: 0.40, source: 'Polymarket' } as Market,
-            market2: { ...poly[0], id: 'mock-k', source: 'Kalshi', yesPrice: 0.55, noPrice: 0.40 } as Market,
-            spread: 20,
-            event: "Bitcoin > $100k (Arbitrage Pair)"
-        });
-        opportunities.push({
-            market1: { ...poly[1] || poly[0], yesPrice: 0.65, source: 'Polymarket' } as Market,
-            market2: { ...poly[1] || poly[0], id: 'mock-k2', source: 'Kalshi', yesPrice: 0.45, noPrice: 0.30 } as Market,
-            spread: 5,
-            event: "Fed Interest Rate Hike"
+            market1: { ...m, source: 'Polymarket' },
+            market2: { ...m, id: m.id + '-mock', source: 'Polymarket', yesPrice: m.yesPrice - 0.05, noPrice: m.noPrice + 0.05 }, // Mock discrepancy
+            spread: spread,
+            event: m.title
         });
     }
 
@@ -626,21 +407,8 @@ export async function findArbitrageOpportunities(mode: 'demo' | 'strict' = 'demo
 }
 
 export async function fetchAllMarkets(): Promise<Market[]> {
-    const [poly, kalshi] = await Promise.all([
-        fetchPolymarketTrending(),
-        fetchKalshiMarkets()
-    ]);
-
-    // Interleave results for a mixed feel
-    const mixed: Market[] = [];
-    const maxLen = Math.max(poly.length, kalshi.length);
-
-    for (let i = 0; i < maxLen; i++) {
-        if (poly[i]) mixed.push(poly[i]);
-        if (kalshi[i]) mixed.push(kalshi[i]);
-    }
-
-    return mixed;
+    const poly = await fetchPolymarketTrending();
+    return poly;
 }
 
 
@@ -726,25 +494,10 @@ export async function fetchWhaleAlertsV2(): Promise<WhaleAlert[]> {
                     }
                 }
 
-                // FALLBACK: Raw Data API (Public)
-                let url = `https://data-api.polymarket.com/trades?limit=1000&sortBy=TIMESTAMP&sortDirection=DESC`;
-                const response = await fetch(url + (lastTimestamp > 0 ? `&timestampLT=${lastTimestamp}` : ''), {
-                    cache: 'no-store',
-                    next: { revalidate: 0 }
-                });
-
-                if (!response.ok) break;
-                const data = await response.json();
-
-                if (Array.isArray(data)) {
-                    trades.push(...data);
-                    if (data.length > 0) {
-                        const last = data[data.length - 1];
-                        lastTimestamp = last.timestamp || 0;
-                    } else {
-                        break;
-                    }
-                } else {
+                // FALLBACK DELETED: We only use authenticated CLOB client now.
+                if (!process.env.POLYMARKET_API_KEY) {
+                    // Break if no keys, as we can't use CLOB
+                    console.warn("No Polymarket Keys provided, Whale alerts limited.");
                     break;
                 }
             } catch (err) {
