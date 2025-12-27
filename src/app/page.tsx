@@ -79,7 +79,7 @@ export default async function Home() {
           WebkitTextFillColor: 'transparent',
           fontSize: 'clamp(2.5rem, 8vw, 4.5rem)'
         }}>
-          Real-Time Prediction <br />
+          Prediction <br />
           Market <span className="text-primary">Intelligence</span>
         </h1>
 

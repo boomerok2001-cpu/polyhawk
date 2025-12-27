@@ -44,7 +44,7 @@ const ARTICLE_CONTENT: Record<string, { title: string; date: string; readTime: s
                 </ul>
 
                 <h2>Why Prediction Markets Matter</h2>
-                <p>Beyond personal profit, prediction markets serve a vital social function. They provide "truth-seeking" data in an era of polarized media. When a news anchor says an event is "certain," but the prediction market shows it at 40%, the market is usually correct. They are real-time, dynamic, and resistant to "expert" bias since they are governed by the harsh reality of profit and loss.</p>
+                <p>Beyond personal profit, prediction markets serve a vital social function. They provide "truth-seeking" data in an era of polarized media. When a news anchor says an event is "certain," but the prediction market shows it at 40%, the market is usually correct. They are dynamic and resistant to "expert" bias since they are governed by the harsh reality of profit and loss.</p>
             </>
         )
     },
@@ -257,8 +257,8 @@ const ARTICLE_CONTENT: Record<string, { title: string; date: string; readTime: s
                 </ol>
 
                 <div style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '2rem', borderRadius: '16px', margin: '2rem 0', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
-                    <h3 style={{ marginTop: 0, color: 'var(--primary)' }}>Pro Tip: Set Up Real-Time News Alerts</h3>
-                    <p>Using a real-time news aggregator can give you an edge during Stage 2. By monitoring multiple sources simultaneously, you can spot breaking news faster than the average trader. When you see a relevant headline, check the corresponding market immediately. Often, there is a 10-20 second "lag" where you can still get in at a profitable price before the crowd catches up.</p>
+                    <h3 style={{ marginTop: 0, color: 'var(--primary)' }}>Pro Tip: Set Up News Alerts</h3>
+                    <p>Using a news aggregator can give you an edge during Stage 2. By monitoring multiple sources simultaneously, you can spot breaking news faster than the average trader. When you see a relevant headline, check the corresponding market immediately. Often, there is a 10-20 second "lag" where you can still get in at a profitable price before the crowd catches up.</p>
                 </div>
 
                 <h2>The "Invalidation" Risk</h2>
