@@ -23,7 +23,6 @@ export default function Leaderboard({
     const [traders, setTraders] = useState<Trader[]>(initialTraders);
     const [loading, setLoading] = useState(initialTraders.length === 0);
     const [timePeriod, setTimePeriod] = useState<'day' | 'week' | 'month' | 'all'>('all');
-    const [category, setCategory] = useState<string>('All');
 
     const TIME_FILTERS = [
         { id: 'all', label: 'All Time' },
@@ -32,18 +31,16 @@ export default function Leaderboard({
         { id: 'month', label: 'Monthly' }
     ];
 
-    const categories = ['All', 'Politics', 'Sports', 'Crypto', 'Business'];
-
     useEffect(() => {
         // Skip fetching if we already have initial traders and haven't changed filters yet
-        if (traders.length > 0 && timePeriod === 'all' && category === 'All' && !loading) {
+        if (traders.length > 0 && timePeriod === 'all' && !loading) {
             return;
         }
 
         const fetchLeaderboardData = async () => {
             setLoading(true);
             try {
-                const response = await fetch(`/api/leaderboard?limit=50&timePeriod=${timePeriod}&category=${category}`);
+                const response = await fetch(`/api/leaderboard?limit=50&timePeriod=${timePeriod}`);
                 const data = await response.json();
 
                 if (Array.isArray(data)) {
@@ -57,7 +54,7 @@ export default function Leaderboard({
         };
 
         fetchLeaderboardData();
-    }, [timePeriod, category]);
+    }, [timePeriod]);
 
     return (
         <div className={styles.leaderboardCard}>
@@ -81,17 +78,7 @@ export default function Leaderboard({
                     </div>
                 </div>
 
-                <div className={styles.categoryBar}>
-                    {categories.map(cat => (
-                        <button
-                            key={cat}
-                            onClick={() => setCategory(cat)}
-                            className={`${styles.categoryButton} ${category === cat ? styles.categoryButtonActive : ''}`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
+
             </div>
 
             <div className={styles.tableWrapper}>
