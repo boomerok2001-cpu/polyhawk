@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { fetchPolymarketTrending, fetchKalshiMarkets, fetchNews, POLYMARKET_REFERRAL, fetchMarketsByCategory, fetchNewMarkets, fetchWhaleAlertsV2 as fetchWhaleAlerts } from '@/lib/api';
+import { fetchPolymarketTrending, fetchNews, POLYMARKET_REFERRAL, fetchMarketsByCategory, fetchNewMarkets, fetchWhaleAlertsV2 as fetchWhaleAlerts } from '@/lib/api';
 import { formatCurrency } from '@/data/markets';
 import HomeMarketTable from '@/components/HomeMarketTable';
 import WhaleAlertsWidget from '@/components/WhaleAlertsWidget';
