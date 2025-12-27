@@ -78,7 +78,7 @@ const ARTICLE_CONTENT: Record<string, { title: string; date: string; readTime: s
                 </div>
 
                 <h2>Identifying Opportunities</h2>
-                <p>At Poly Hawk, our arbitrage scanner looks for several patterns:</p>
+                <p>When scanning for arbitrage opportunities, look for several patterns:</p>
                 <ul>
                     <li><strong>Directional Spread:</strong> Yes on A + No on B &lt; $1.00.</li>
                     <li><strong>Outcome Conversion:</strong> Sometimes Platform A has "Trump Wins" and Platform B has "Harris Wins". While not strictly the same (a third party could win), in a two-horse race, they function as inverse correlates.</li>
@@ -123,7 +123,7 @@ const ARTICLE_CONTENT: Record<string, { title: string; date: string; readTime: s
                 </div>
 
                 <h2>The Psychology of the Tape</h2>
-                <p>When you watch the "recent trades" list (often called the tape), look for speed. If you see five small "Yes" buys followed by one massive $10,000 "Yes" buy, that’s a signal. Small retail traders are clicking buttons, but a "whale" just took a position. On Poly Hawk, our Whale Alerts are designed to catch exactly these moves so you don't have to stare at the tape 24/7.</p>
+                <p>When you watch the "recent trades" list (often called the tape), look for speed. If you see five small "Yes" buys followed by one massive $10,000 "Yes" buy, that’s a signal. Small retail traders are clicking buttons, but a "whale" just took a position. Setting up whale alerts can help you to catch exactly these moves so you don't have to stare at the tape 24/7.</p>
             </>
         )
     },
@@ -237,7 +237,7 @@ const ARTICLE_CONTENT: Record<string, { title: string; date: string; readTime: s
                 </div>
 
                 <h2>What This Means for You</h2>
-                <p>If you trade on Kalshi, keep your tax documents in order. If you trade on Polymarket, be aware that you are operating in a fast-moving legal environment. At Poly Hawk, we track these shifts daily to ensure our tools remain compliant and our users stay informed.</p>
+                <p>If you trade on Kalshi, keep your tax documents in order. If you trade on Polymarket, be aware that you are operating in a fast-moving legal environment. Stay informed about regulatory changes to ensure you remain compliant.</p>
             </>
         )
     },
@@ -257,8 +257,8 @@ const ARTICLE_CONTENT: Record<string, { title: string; date: string; readTime: s
                 </ol>
 
                 <div style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '2rem', borderRadius: '16px', margin: '2rem 0', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
-                    <h3 style={{ marginTop: 0, color: 'var(--primary)' }}>Pro Tip: Use the Poly Hawk News Feed</h3>
-                    <p>We built our real-time news feed specifically for Stage 2. We aggregate sources faster than the average browser refresh. If you see a headline on our dashboard, check the corresponding market immediately. Often, there is a 10-20 second "lag" where you can still get in at a profitable price before the crowd catches up.</p>
+                    <h3 style={{ marginTop: 0, color: 'var(--primary)' }}>Pro Tip: Set Up Real-Time News Alerts</h3>
+                    <p>Using a real-time news aggregator can give you an edge during Stage 2. By monitoring multiple sources simultaneously, you can spot breaking news faster than the average trader. When you see a relevant headline, check the corresponding market immediately. Often, there is a 10-20 second "lag" where you can still get in at a profitable price before the crowd catches up.</p>
                 </div>
 
                 <h2>The "Invalidation" Risk</h2>
@@ -297,7 +297,7 @@ const ARTICLE_CONTENT: Record<string, { title: string; date: string; readTime: s
                 <p>Just because two things happened together in the past doesn't mean they will in the future. This is the classic "Correlation vs. Causation" trap. For example, "Shark attacks" and "Ice cream sales" are positively correlated (both go up in the summer), but buying ice cream doesn't cause shark attacks. <strong>Always look for the causal mechanism.</strong> If there is no logical link between the two events, the correlation is just noise and will eventually break, likely blowing up your trade.</p>
 
                 <h2>Pro Tip: Cross-Platform Correlations</h2>
-                <p>At Poly Hawk, we often see correlations between Polymarket (crypto/global audience) and Kalshi (regulated/US audience). Sometimes a "pop culture" event on Polymarket actually hints at how a "serious" economic event on Kalshi will resolve. These hidden links are where the true "alpha" lives.</p>
+                <p>Correlations often exist between Polymarket (crypto/global audience) and Kalshi (regulated/US audience). Sometimes a "pop culture" event on Polymarket actually hints at how a "serious" economic event on Kalshi will resolve. These hidden links are where the true "alpha" lives.</p>
             </>
         )
     },
@@ -396,3 +396,4 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         </main>
     );
 }
+
