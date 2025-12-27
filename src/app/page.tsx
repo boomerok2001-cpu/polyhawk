@@ -20,15 +20,16 @@ const FEATURED_ARTICLES = [
 ];
 
 export default async function Home() {
-  let polymarketData: any[] = [], sportsMarketsData: any[] = [], politicsMarketsData: any[] = [], cryptoMarketsData: any[] = [], newMarketsData: any[] = [];
+  let polymarketData: any[] = [], sportsMarketsData: any[] = [], politicsMarketsData: any[] = [], cryptoMarketsData: any[] = [], newMarketsData: any[] = [], whaleAlertsData: any[] = [];
 
   try {
-    [polymarketData, sportsMarketsData, politicsMarketsData, cryptoMarketsData, newMarketsData] = await Promise.all([
+    [polymarketData, sportsMarketsData, politicsMarketsData, cryptoMarketsData, newMarketsData, whaleAlertsData] = await Promise.all([
       fetchPolymarketTrending().catch(() => []),
       fetchMarketsByCategory('sports').catch(() => []),
       fetchMarketsByCategory('politics').catch(() => []),
       fetchMarketsByCategory('crypto').catch(() => []),
-      fetchNewMarkets().catch(() => [])
+      fetchNewMarkets().catch(() => []),
+      fetchWhaleAlerts().catch(() => [])
     ]);
   } catch (error) {
     console.error("Error fetching homepage data:", error);
@@ -52,6 +53,9 @@ export default async function Home() {
 
   // New Markets
   const newMarkets = newMarketsData.slice(0, 8);
+
+  // Whale Alerts
+  const whaleAlerts = whaleAlertsData.slice(0, 5);
 
 
 
@@ -149,6 +153,11 @@ export default async function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Whale Alerts Widget */}
+        <div style={{ flex: 1, minWidth: '300px' }}>
+          <WhaleAlertsWidget initialAlerts={whaleAlerts} />
         </div>
 
 
