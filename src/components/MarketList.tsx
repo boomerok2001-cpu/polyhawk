@@ -5,7 +5,7 @@ import { Market } from '@/lib/api';
 import { formatCurrency } from '@/data/markets';
 import { useState } from 'react';
 
-const CATEGORIES = ['All', 'Politics', 'Crypto', 'Sports', 'Pop Culture', 'Business', 'Science', 'Other'];
+const CATEGORIES = ['All', 'Politics', 'Crypto', 'Sports', 'Pop Culture', 'Science', 'Other'];
 
 export default function MarketList({ initialMarkets }: { initialMarkets: Market[] }) {
     const [activeCategory, setActiveCategory] = useState('All');

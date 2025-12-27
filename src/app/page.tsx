@@ -53,8 +53,7 @@ export default async function Home() {
   // New Markets
   const newMarkets = newMarketsData.slice(0, 8);
 
-  // Whale Alerts
-  const whaleAlerts = whaleAlertsData.slice(0, 5);
+
 
   // Calculate dynamic stats
   const total24hVol = allMarkets.reduce((sum, m) => sum + m.volume, 0);
