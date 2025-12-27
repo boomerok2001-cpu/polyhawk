@@ -3,7 +3,7 @@ import { fetchPolymarketTrending, fetchKalshiMarkets, fetchNews, POLYMARKET_REFE
 import { formatCurrency } from '@/data/markets';
 import HomeMarketTable from '@/components/HomeMarketTable';
 import WhaleAlertsWidget from '@/components/WhaleAlertsWidget';
-import HawkoButton from '@/components/HawkoButton';
+
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -83,7 +83,7 @@ export default async function Home() {
           <a href={POLYMARKET_REFERRAL} target="_blank" className="btn btn-primary" style={{ fontSize: '1rem', padding: '0.8rem 1.5rem', flex: '1 1 auto', maxWidth: '300px' }}>
             Polymarket
           </a>
-          <HawkoButton />
+
         </div>
       </div>
 
