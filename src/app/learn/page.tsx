@@ -92,7 +92,7 @@ export default function LearnPage() {
                 <h1 style={{ fontSize: '3rem', fontWeight: 800 }}>Poly Hawk Academy</h1>
             </div>
             <p className="text-secondary" style={{ fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
-                From beginner basics to advanced arbitrage strategies. Level up your prediction game.
+
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
