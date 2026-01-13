@@ -1,14 +1,5 @@
 [
   {
-    "id": "147496",
-    "title": "Bitcoin above ___ on January 13?",
-    "yesPrice": 0.9995,
-    "noPrice": 0.0005,
-    "volume": 254277.274932,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
-    "url": "https://polymarket.com/event/bitcoin-above-on-january-13?via=shiroe"
-  },
-  {
     "id": "137338",
     "title": "What price will Bitcoin hit in January?",
     "yesPrice": 0.0035,
@@ -16,15 +7,6 @@
     "volume": 399700.47092200007,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
     "url": "https://polymarket.com/event/what-price-will-bitcoin-hit-in-january-2026?via=shiroe"
-  },
-  {
-    "id": "147484",
-    "title": "Ethereum above ___ on January 13?",
-    "yesPrice": 0.9995,
-    "noPrice": 0.0005,
-    "volume": 150883.731418,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
-    "url": "https://polymarket.com/event/ethereum-above-on-january-13?via=shiroe"
   },
   {
     "id": "147486",
@@ -47,8 +29,8 @@
   {
     "id": "158907",
     "title": "What price will Bitcoin hit January 12-18?",
-    "yesPrice": 0.0125,
-    "noPrice": 0.9875,
+    "yesPrice": 0.014,
+    "noPrice": 0.986,
     "volume": 36410.90599500001,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
     "url": "https://polymarket.com/event/what-price-will-bitcoin-hit-january-12-18?via=shiroe"
@@ -56,20 +38,11 @@
   {
     "id": "158175",
     "title": "Bitcoin Up or Down - January 13, 2PM ET",
-    "yesPrice": 0.475,
-    "noPrice": 0.525,
+    "yesPrice": 0.9995,
+    "noPrice": 0.0005,
     "volume": 524454.737602,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
     "url": "https://polymarket.com/event/bitcoin-up-or-down-january-13-2pm-et?via=shiroe"
-  },
-  {
-    "id": "157833",
-    "title": "Bitcoin Up or Down on January 13?",
-    "yesPrice": 0.9995,
-    "noPrice": 0.0005,
-    "volume": 478281.44067900005,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
-    "url": "https://polymarket.com/event/bitcoin-up-or-down-on-january-13?via=shiroe"
   },
   {
     "id": "137341",
@@ -83,8 +56,8 @@
   {
     "id": "158322",
     "title": "Ethereum Up or Down - January 13, 4PM ET",
-    "yesPrice": 0.505,
-    "noPrice": 0.495,
+    "yesPrice": 0.475,
+    "noPrice": 0.525,
     "volume": 422059.91,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
     "url": "https://polymarket.com/event/ethereum-up-or-down-january-13-4pm-et?via=shiroe"
@@ -92,26 +65,17 @@
   {
     "id": "158176",
     "title": "Ethereum Up or Down - January 13, 2PM ET",
-    "yesPrice": 0.495,
-    "noPrice": 0.505,
+    "yesPrice": 0.9995,
+    "noPrice": 0.0005,
     "volume": 402638.229995,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
     "url": "https://polymarket.com/event/ethereum-up-or-down-january-13-2pm-et?via=shiroe"
   },
   {
-    "id": "147501",
-    "title": "Solana above ___ on January 13?",
-    "yesPrice": 0.9995,
-    "noPrice": 0.0005,
-    "volume": 2990.99,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
-    "url": "https://polymarket.com/event/solana-above-on-january-13?via=shiroe"
-  },
-  {
     "id": "91919",
     "title": "Fogo FDV above ___ one day after launch?",
-    "yesPrice": 0.923,
-    "noPrice": 0.077,
+    "yesPrice": 0.921,
+    "noPrice": 0.079,
     "volume": 100567.783164,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-fogo-launch-a-token-by-ERergqgqhwOx.jpg",
     "url": "https://polymarket.com/event/fogo-fdv-above-one-day-after-launch?via=shiroe"
@@ -128,20 +92,11 @@
   {
     "id": "137340",
     "title": "What price will Solana hit in January?",
-    "yesPrice": 0.012,
-    "noPrice": 0.988,
+    "yesPrice": 0.0135,
+    "noPrice": 0.9865,
     "volume": 37253.631561,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
     "url": "https://polymarket.com/event/what-price-will-solana-hit-in-january-2026?via=shiroe"
-  },
-  {
-    "id": "147503",
-    "title": "XRP above ___ on January 13?",
-    "yesPrice": 0.9995,
-    "noPrice": 0.0005,
-    "volume": 15296.654329999998,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/XRP-logo.png",
-    "url": "https://polymarket.com/event/xrp-above-on-january-13?via=shiroe"
   },
   {
     "id": "158766",
@@ -162,19 +117,10 @@
     "url": "https://polymarket.com/event/ethereum-above-on-january-14?via=shiroe"
   },
   {
-    "id": "157836",
-    "title": "Ethereum Up or Down on January 13?",
-    "yesPrice": 0.9995,
-    "noPrice": 0.0005,
-    "volume": 163982.60140499994,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
-    "url": "https://polymarket.com/event/ethereum-up-or-down-on-january-13?via=shiroe"
-  },
-  {
     "id": "149495",
     "title": "Bitcoin price on January 14?",
-    "yesPrice": 0.0015,
-    "noPrice": 0.9985,
+    "yesPrice": 0.0005,
+    "noPrice": 0.9995,
     "volume": 32332.542807,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
     "url": "https://polymarket.com/event/bitcoin-price-on-january-14?via=shiroe"
@@ -200,8 +146,8 @@
   {
     "id": "158930",
     "title": "What price will Ethereum hit January 12-18?",
-    "yesPrice": 0.0125,
-    "noPrice": 0.9875,
+    "yesPrice": 0.0085,
+    "noPrice": 0.9915,
     "volume": 1450.006462,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
     "url": "https://polymarket.com/event/what-price-will-ethereum-hit-january-12-18?via=shiroe"
@@ -218,8 +164,8 @@
   {
     "id": "151488",
     "title": "Bitcoin above ___ on January 15?",
-    "yesPrice": 0.998,
-    "noPrice": 0.002,
+    "yesPrice": 0.9985,
+    "noPrice": 0.0015,
     "volume": 11876.97907,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
     "url": "https://polymarket.com/event/bitcoin-above-on-january-15?via=shiroe"
@@ -299,8 +245,8 @@
   {
     "id": "84946",
     "title": "Zama FDV above ___ one day after launch?",
-    "yesPrice": 0.26,
-    "noPrice": 0.74,
+    "yesPrice": 0.285,
+    "noPrice": 0.715,
     "volume": 8549.648676,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-zama-launch-a-token-in-2025-ZUCE5_QLGUxf.png",
     "url": "https://polymarket.com/event/zama-fdv-above-one-day-after-launch?via=shiroe"
@@ -308,8 +254,8 @@
   {
     "id": "158101",
     "title": "Solana Up or Down - January 13, 1PM ET",
-    "yesPrice": 0.975,
-    "noPrice": 0.025,
+    "yesPrice": 0.9995,
+    "noPrice": 0.0005,
     "volume": 49154,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
     "url": "https://polymarket.com/event/solana-up-or-down-january-13-1pm-et?via=shiroe"
@@ -317,8 +263,8 @@
   {
     "id": "149508",
     "title": "Solana above ___ on January 14?",
-    "yesPrice": 0.998,
-    "noPrice": 0.002,
+    "yesPrice": 0.9975,
+    "noPrice": 0.0025,
     "volume": 0,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
     "url": "https://polymarket.com/event/solana-above-on-january-14?via=shiroe"
@@ -351,19 +297,10 @@
     "url": "https://polymarket.com/event/bitcoin-above-on-january-16?via=shiroe"
   },
   {
-    "id": "157838",
-    "title": "Solana Up or Down - January 13, 12PM ET",
-    "yesPrice": 0.0005,
-    "noPrice": 0.9995,
-    "volume": 40126.827645999976,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
-    "url": "https://polymarket.com/event/solana-up-or-down-january-13-12pm-et?via=shiroe"
-  },
-  {
     "id": "127091",
     "title": "Will ETHGAS launch a token by ___?",
-    "yesPrice": 0.895,
-    "noPrice": 0.105,
+    "yesPrice": 0.9,
+    "noPrice": 0.1,
     "volume": 19420.372461,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-ethgas-launch-a-token-by-fNzy3spfGB5B.jpg",
     "url": "https://polymarket.com/event/will-ethgas-launch-a-token-by?via=shiroe"
@@ -371,8 +308,8 @@
   {
     "id": "52130",
     "title": "Opensea FDV above ___ one day after launch?",
-    "yesPrice": 0.59,
-    "noPrice": 0.41,
+    "yesPrice": 0.595,
+    "noPrice": 0.405,
     "volume": 9928.690940999999,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/opensea-airdrop-before-april-NL2BT2uLD5Ny.png",
     "url": "https://polymarket.com/event/opensea-fdv-above-one-day-after-launch?via=shiroe"
@@ -380,8 +317,8 @@
   {
     "id": "133604",
     "title": "What price will Lighter hit in 2026?",
-    "yesPrice": 0.125,
-    "noPrice": 0.875,
+    "yesPrice": 0.115,
+    "noPrice": 0.885,
     "volume": 1241.0600000000002,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/what-day-will-the-lighter-airdrop-be-1fv2OliGynr-.jpg",
     "url": "https://polymarket.com/event/what-price-will-lighter-hit-before-2027?via=shiroe"
@@ -389,8 +326,8 @@
   {
     "id": "157841",
     "title": "Bitcoin above ___ on January 18?",
-    "yesPrice": 0.9845,
-    "noPrice": 0.0155,
+    "yesPrice": 0.9885,
+    "noPrice": 0.0115,
     "volume": 1156.8106600000003,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
     "url": "https://polymarket.com/event/bitcoin-above-on-january-18?via=shiroe"
@@ -416,8 +353,8 @@
   {
     "id": "158946",
     "title": "What price will XRP hit January 12-18?",
-    "yesPrice": 0.0035,
-    "noPrice": 0.9965,
+    "yesPrice": 0.0045,
+    "noPrice": 0.9955,
     "volume": 3666.14427,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/XRP-logo.png",
     "url": "https://polymarket.com/event/what-price-will-xrp-hit-january-12-18?via=shiroe"
@@ -425,8 +362,8 @@
   {
     "id": "56504",
     "title": "First to 5k: Gold or ETH?",
-    "yesPrice": 0.81,
-    "noPrice": 0.19,
+    "yesPrice": 0.785,
+    "noPrice": 0.215,
     "volume": 31280.801736,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/first-to-5k-gold-or-eth-9Zt2RB0rwODb.jpg",
     "url": "https://polymarket.com/event/first-to-5k-gold-or-eth?via=shiroe"
@@ -434,8 +371,8 @@
   {
     "id": "91926",
     "title": "Extended FDV above ___ one day after launch?",
-    "yesPrice": 0.34,
-    "noPrice": 0.66,
+    "yesPrice": 0.35,
+    "noPrice": 0.65,
     "volume": 1446.61662,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-extended-launch-a-token-by-D5bpW_p-APnZ.jpg",
     "url": "https://polymarket.com/event/extended-fdv-above-one-day-after-launch?via=shiroe"
@@ -448,5 +385,68 @@
     "volume": 28001.960783,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
     "url": "https://polymarket.com/event/bitcoin-up-or-down-january-14-12am-et?via=shiroe"
+  },
+  {
+    "id": "112071",
+    "title": "Trove FDV above ___ one day after launch?",
+    "yesPrice": 0.475,
+    "noPrice": 0.525,
+    "volume": 22020.384242,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-trove-launch-a-token-by-Zh8fnhkHGXRv.jpg",
+    "url": "https://polymarket.com/event/trove-fdv-above-one-day-after-launch?via=shiroe"
+  },
+  {
+    "id": "91275",
+    "title": "Will Fogo launch a token by ___ ?",
+    "yesPrice": 0.9995,
+    "noPrice": 0.0005,
+    "volume": 7808.493,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-fogo-launch-a-token-by-ERergqgqhwOx.jpg",
+    "url": "https://polymarket.com/event/will-fogo-launch-a-token-by?via=shiroe"
+  },
+  {
+    "id": "151478",
+    "title": "Bitcoin price on January 15?",
+    "yesPrice": 0.005,
+    "noPrice": 0.995,
+    "volume": 2517.765141,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+    "url": "https://polymarket.com/event/bitcoin-price-on-january-15?via=shiroe"
+  },
+  {
+    "id": "149505",
+    "title": "Solana price on January 14?",
+    "yesPrice": 0.0005,
+    "noPrice": 0.9995,
+    "volume": 13557.920998000003,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/SOL-logo.png",
+    "url": "https://polymarket.com/event/solana-price-on-january-14?via=shiroe"
+  },
+  {
+    "id": "159191",
+    "title": "Bitcoin Up or Down - January 14, 3AM ET",
+    "yesPrice": 0.505,
+    "noPrice": 0.495,
+    "volume": 23601.960783,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+    "url": "https://polymarket.com/event/bitcoin-up-or-down-january-14-3am-et?via=shiroe"
+  },
+  {
+    "id": "106811",
+    "title": "Bitcoin all time high by ___?",
+    "yesPrice": 0.13,
+    "noPrice": 0.87,
+    "volume": 19993.87934,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/BTC+fullsize.png",
+    "url": "https://polymarket.com/event/bitcoin-all-time-high-by?via=shiroe"
+  },
+  {
+    "id": "158099",
+    "title": "Ethereum Up or Down - January 13, 1PM ET",
+    "yesPrice": 0.9995,
+    "noPrice": 0.0005,
+    "volume": 21959,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/ETH+fullsize.jpg",
+    "url": "https://polymarket.com/event/ethereum-up-or-down-january-13-1pm-et?via=shiroe"
   }
 ]

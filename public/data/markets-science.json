@@ -2,8 +2,8 @@
   {
     "id": "149793",
     "title": "Will the Doge-1 Lunar Mission launch before 2027?",
-    "yesPrice": 0.075,
-    "noPrice": 0.925,
+    "yesPrice": 0.05,
+    "noPrice": 0.95,
     "volume": 89229.29486,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-the-doge-1-lunar-mission-launch-before-2027-wrmn3EafBT0g.jpg",
     "url": "https://polymarket.com/event/will-the-doge-1-lunar-mission-launch-before-2027?via=shiroe"
@@ -11,20 +11,11 @@
   {
     "id": "16171",
     "title": "Will 2025 be the hottest year on record?",
-    "yesPrice": 0.002,
-    "noPrice": 0.998,
+    "yesPrice": 0.0035,
+    "noPrice": 0.9965,
     "volume": 66864.25359400001,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/earth+on+fire.png",
     "url": "https://polymarket.com/event/will-2025-be-the-hottest-year-on-record?via=shiroe"
-  },
-  {
-    "id": "96603",
-    "title": "How many Tornadoes in the US in 2025?",
-    "yesPrice": 0.0005,
-    "noPrice": 0.9995,
-    "volume": 13103.343291,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/how-many-tornadoes-in-the-us-in-november-W7XLO0OomR-x.png",
-    "url": "https://polymarket.com/event/how-many-tornadoes-in-the-us-in-2025?via=shiroe"
   },
   {
     "id": "101878",
@@ -38,8 +29,8 @@
   {
     "id": "134977",
     "title": "How many 7.0 or above earthquakes in 2026?",
-    "yesPrice": 0.02,
-    "noPrice": 0.98,
+    "yesPrice": 0.0175,
+    "noPrice": 0.9825,
     "volume": 16159.778562,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/earthquake-7pt0-or-above-by-august-31-698-AANrykUigfWS.jpg",
     "url": "https://polymarket.com/event/how-many-7pt0-or-above-earthquakes-in-2026?via=shiroe"
@@ -54,15 +45,6 @@
     "url": "https://polymarket.com/event/will-2025-be-the-second-hottest-year-on-record-294?via=shiroe"
   },
   {
-    "id": "96598",
-    "title": "How many Tornadoes in the US in December?",
-    "yesPrice": 0.0005,
-    "noPrice": 0.9995,
-    "volume": 2499.9849999999997,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/how-many-tornadoes-in-the-us-in-november-W7XLO0OomR-x.png",
-    "url": "https://polymarket.com/event/how-many-tornadoes-in-the-us-in-december?via=shiroe"
-  },
-  {
     "id": "100314",
     "title": "10.0 or above earthquake before 2027?",
     "yesPrice": 0.054,
@@ -74,8 +56,8 @@
   {
     "id": "90177",
     "title": "Will the US confirm that aliens exist before 2027?",
-    "yesPrice": 0.075,
-    "noPrice": 0.925,
+    "yesPrice": 0.08,
+    "noPrice": 0.92,
     "volume": 6638.1882559999995,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/alien+head.jpeg",
     "url": "https://polymarket.com/event/will-the-us-confirm-that-aliens-exist-before-2027?via=shiroe"
@@ -92,8 +74,8 @@
   {
     "id": "149794",
     "title": "Measles cases in U.S. by January 31?",
-    "yesPrice": 0.986,
-    "noPrice": 0.014,
+    "yesPrice": 0.9905,
+    "noPrice": 0.0095,
     "volume": 328.206448,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/1200-measles-cases-in-us-before-june-jPVnjl81lNC-.jpg",
     "url": "https://polymarket.com/event/measles-cases-in-us-by-january-31?via=shiroe"
@@ -101,8 +83,8 @@
   {
     "id": "101885",
     "title": "December 2025 Temperature Increase (ºC)",
-    "yesPrice": 0.01,
-    "noPrice": 0.99,
+    "yesPrice": 0.0105,
+    "noPrice": 0.9895,
     "volume": 1521.50575,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/february-2025-temperature-increase-c-fr_fUwG_Bhn4.jpg",
     "url": "https://polymarket.com/event/december-2025-temperature-increase-c?via=shiroe"
@@ -128,8 +110,8 @@
   {
     "id": "131180",
     "title": "2026 January 1st, 2nd, 3rd hottest on record?",
-    "yesPrice": 0.065,
-    "noPrice": 0.935,
+    "yesPrice": 0.075,
+    "noPrice": 0.925,
     "volume": 157.810514,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/earth+on+fire.png",
     "url": "https://polymarket.com/event/2026-january-1st-2nd-3rd-hottest-on-record?via=shiroe"
@@ -137,8 +119,8 @@
   {
     "id": "131171",
     "title": "January 2026 Temperature Increase (ºC)",
-    "yesPrice": 0.085,
-    "noPrice": 0.915,
+    "yesPrice": 0.08,
+    "noPrice": 0.92,
     "volume": 77.49,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/february-2025-temperature-increase-c-fr_fUwG_Bhn4.jpg",
     "url": "https://polymarket.com/event/january-2026-temperature-increase-c?via=shiroe"
@@ -173,8 +155,8 @@
   {
     "id": "131185",
     "title": "How many Tornadoes in the US in January?",
-    "yesPrice": 0.77,
-    "noPrice": 0.23,
+    "yesPrice": 0.76,
+    "noPrice": 0.24,
     "volume": 410.209122,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/how-many-tornadoes-in-the-us-in-november-W7XLO0OomR-x.png",
     "url": "https://polymarket.com/event/how-many-tornadoes-in-the-us-in-january?via=shiroe"
@@ -182,8 +164,8 @@
   {
     "id": "90601",
     "title": "Will Bitcoin replace SHA-256 before 2027?",
-    "yesPrice": 0.0395,
-    "noPrice": 0.9605,
+    "yesPrice": 0.048,
+    "noPrice": 0.952,
     "volume": 1006.951419,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-bitcoin-migrate-from-sha-256-before-june-DEFGP-CsIMEm.jpg",
     "url": "https://polymarket.com/event/will-bitcoin-replace-sha-256-before-2027?via=shiroe"
@@ -209,8 +191,8 @@
   {
     "id": "100313",
     "title": "9.0 or above earthquake before 2027?",
-    "yesPrice": 0.1,
-    "noPrice": 0.9,
+    "yesPrice": 0.105,
+    "noPrice": 0.895,
     "volume": 508.7698730000001,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/earthquake-7pt0-or-above-by-august-31-698-AANrykUigfWS.jpg",
     "url": "https://polymarket.com/event/9pt0-or-above-earthquake-before-2027?via=shiroe"
@@ -236,8 +218,8 @@
   {
     "id": "149812",
     "title": "Human moon landing in 2026?",
-    "yesPrice": 0.05,
-    "noPrice": 0.95,
+    "yesPrice": 0.0505,
+    "noPrice": 0.9495,
     "volume": 240.09705999999997,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us+moon+landing.png",
     "url": "https://polymarket.com/event/human-moon-landing-in-2026?via=shiroe"
@@ -245,8 +227,8 @@
   {
     "id": "158107",
     "title": "FDA approves Retatrutide this year?",
-    "yesPrice": 0.18,
-    "noPrice": 0.82,
+    "yesPrice": 0.175,
+    "noPrice": 0.825,
     "volume": 225.719365,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/fda-approves-mercks-clesrovimab-infant-rsv-prevention-mk1654-UwIlSPqRRYN3.jpg",
     "url": "https://polymarket.com/event/fda-approves-retatrutide-this-year?via=shiroe"
@@ -263,8 +245,8 @@
   {
     "id": "135338",
     "title": "How many large volcano eruptions (VEI ≥4) in 2026?",
-    "yesPrice": 0.305,
-    "noPrice": 0.695,
+    "yesPrice": 0.3,
+    "noPrice": 0.7,
     "volume": 3.38,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/major-volcano-eruption-vei-6-in-2026-LJHtO8e65z5C.jpg",
     "url": "https://polymarket.com/event/how-many-large-volcano-eruption-vei-4-in-2026-657?via=shiroe"
@@ -308,8 +290,8 @@
   {
     "id": "91942",
     "title": "Measles cases in U.S. in 2026?",
-    "yesPrice": 0.305,
-    "noPrice": 0.695,
+    "yesPrice": 0.315,
+    "noPrice": 0.685,
     "volume": 0,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/1200-measles-cases-in-us-before-june-jPVnjl81lNC-.jpg",
     "url": "https://polymarket.com/event/measles-cases-in-us-in-2026?via=shiroe"
@@ -353,8 +335,8 @@
   {
     "id": "139482",
     "title": "New Coronavirus Pandemic in 2026?",
-    "yesPrice": 0.092,
-    "noPrice": 0.908,
+    "yesPrice": 0.09,
+    "noPrice": 0.91,
     "volume": 1.060438,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/new-coronavirus-pandemic-in-2025-p38YLu9s7Pws.jpg",
     "url": "https://polymarket.com/event/new-coronavirus-pandemic-in-2026?via=shiroe"
@@ -362,38 +344,38 @@
   {
     "id": "79075",
     "title": "U.S. enacts AI safety bill before 2027?",
-    "yesPrice": 0.375,
-    "noPrice": 0.625,
+    "yesPrice": 0.42,
+    "noPrice": 0.58,
     "volume": 0,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-enacts-ai-safety-bill-in-2025-BnBSEkkIK6TL.jpg",
     "url": "https://polymarket.com/event/us-enacts-ai-safety-bill-before-2027?via=shiroe"
   },
   {
-    "id": "131194",
-    "title": "Precipitation in NYC in January?",
-    "yesPrice": 0.23,
-    "noPrice": 0.77,
-    "volume": 0,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/precipitation-in-nyc-in-december-evCK5_m68T0x.jpg",
-    "url": "https://polymarket.com/event/precipitation-in-nyc-in-january?via=shiroe"
-  },
-  {
     "id": "51561",
     "title": "US fertility rate up in Q3 2025?",
-    "yesPrice": 0.466,
-    "noPrice": 0.534,
+    "yesPrice": 0.487,
+    "noPrice": 0.513,
     "volume": 0,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-fertility-rate-up-in-q1-2025-9QR3kDVV15bt.png",
     "url": "https://polymarket.com/event/us-fertility-rate-up-in-q3-2025?via=shiroe"
   },
   {
-    "id": "101213",
-    "title": "Medline IPO Closing Market Cap",
-    "yesPrice": 0,
-    "noPrice": 1,
+    "id": "162018",
+    "title": "US confirms Havana Syndrome–causing device by March 31?",
+    "yesPrice": 0.325,
+    "noPrice": 0.675,
     "volume": 0,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/medline-ipo-closing-market-cap-ACPC6jwYvP6i.png",
-    "url": "https://polymarket.com/event/medline-ipo-closing-market-cap?via=shiroe"
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-the-us-confirm-a-havana-syndromecausing-device-exists-before-2027-Lm4NIfdB3Mp3.jpg",
+    "url": "https://polymarket.com/event/us-confirms-havana-syndromecausing-device-by-march-31?via=shiroe"
+  },
+  {
+    "id": "131194",
+    "title": "Precipitation in NYC in January?",
+    "yesPrice": 0.21,
+    "noPrice": 0.79,
+    "volume": 0,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/precipitation-in-nyc-in-december-evCK5_m68T0x.jpg",
+    "url": "https://polymarket.com/event/precipitation-in-nyc-in-january?via=shiroe"
   },
   {
     "id": "147360",
@@ -403,5 +385,14 @@
     "volume": 0,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-win-the-2026-fields-medal-_Ga46CWkQrVs.jpg",
     "url": "https://polymarket.com/event/who-will-win-the-2026-fields-medal?via=shiroe"
+  },
+  {
+    "id": "101213",
+    "title": "Medline IPO Closing Market Cap",
+    "yesPrice": 0,
+    "noPrice": 1,
+    "volume": 0,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/medline-ipo-closing-market-cap-ACPC6jwYvP6i.png",
+    "url": "https://polymarket.com/event/medline-ipo-closing-market-cap?via=shiroe"
   }
 ]

@@ -29,8 +29,8 @@
   {
     "id": "149282",
     "title": "Spurs vs. Thunder",
-    "yesPrice": 0.555,
-    "noPrice": 0.445,
+    "yesPrice": 0.56,
+    "noPrice": 0.44,
     "volume": 150983.84203499995,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/super+cool+basketball+in+red+and+blue+wow.png",
     "url": "https://polymarket.com/event/nba-sas-okc-2026-01-13?via=shiroe"
@@ -47,8 +47,8 @@
   {
     "id": "149275",
     "title": "Suns vs. Heat",
-    "yesPrice": 0.495,
-    "noPrice": 0.505,
+    "yesPrice": 0.48,
+    "noPrice": 0.52,
     "volume": 46503.439932999994,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/super+cool+basketball+in+red+and+blue+wow.png",
     "url": "https://polymarket.com/event/nba-phx-mia-2026-01-13?via=shiroe"
@@ -92,8 +92,8 @@
   {
     "id": "149288",
     "title": "Trail Blazers vs. Warriors",
-    "yesPrice": 0.535,
-    "noPrice": 0.465,
+    "yesPrice": 0.545,
+    "noPrice": 0.455,
     "volume": 0,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/super+cool+basketball+in+red+and+blue+wow.png",
     "url": "https://polymarket.com/event/nba-por-gsw-2026-01-13?via=shiroe"
@@ -101,8 +101,8 @@
   {
     "id": "134284",
     "title": "VfB Stuttgart vs. Eintracht Frankfurt",
-    "yesPrice": 0.805,
-    "noPrice": 0.195,
+    "yesPrice": 0.9995,
+    "noPrice": 0.0005,
     "volume": 427833.3676459996,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/league-bun.jpg",
     "url": "https://polymarket.com/event/bun-stu-ein-2026-01-13?via=shiroe"
@@ -110,8 +110,8 @@
   {
     "id": "149280",
     "title": "Nuggets vs. Pelicans",
-    "yesPrice": 0.52,
-    "noPrice": 0.48,
+    "yesPrice": 0.505,
+    "noPrice": 0.495,
     "volume": 0,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/super+cool+basketball+in+red+and+blue+wow.png",
     "url": "https://polymarket.com/event/nba-den-nop-2026-01-13?via=shiroe"
@@ -119,8 +119,8 @@
   {
     "id": "134287",
     "title": "BV Borussia 09 Dortmund vs. SV Werder Bremen",
-    "yesPrice": 0.695,
-    "noPrice": 0.305,
+    "yesPrice": 0.795,
+    "noPrice": 0.205,
     "volume": 374964.75154199975,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/league-bun.jpg",
     "url": "https://polymarket.com/event/bun-dor-wer-2026-01-13?via=shiroe"
@@ -128,8 +128,8 @@
   {
     "id": "149285",
     "title": "Hawks vs. Lakers",
-    "yesPrice": 0.55,
-    "noPrice": 0.45,
+    "yesPrice": 0.555,
+    "noPrice": 0.445,
     "volume": 2107.232965,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/super+cool+basketball+in+red+and+blue+wow.png",
     "url": "https://polymarket.com/event/nba-atl-lal-2026-01-13?via=shiroe"
@@ -137,8 +137,8 @@
   {
     "id": "149278",
     "title": "Timberwolves vs. Bucks",
-    "yesPrice": 0.515,
-    "noPrice": 0.485,
+    "yesPrice": 0.52,
+    "noPrice": 0.48,
     "volume": 14978.336271,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/super+cool+basketball+in+red+and+blue+wow.png",
     "url": "https://polymarket.com/event/nba-min-mil-2026-01-13?via=shiroe"
@@ -164,8 +164,8 @@
   {
     "id": "107604",
     "title": "Flames vs. Blue Jackets",
-    "yesPrice": 0.445,
-    "noPrice": 0.555,
+    "yesPrice": 0.44,
+    "noPrice": 0.56,
     "volume": 311866.4406059998,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/nhl.png",
     "url": "https://polymarket.com/event/nhl-cal-cbj-2026-01-13?via=shiroe"
@@ -173,8 +173,8 @@
   {
     "id": "107605",
     "title": "Canadiens vs. Capitals",
-    "yesPrice": 0.455,
-    "noPrice": 0.545,
+    "yesPrice": 0.445,
+    "noPrice": 0.555,
     "volume": 283107.66693700006,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/nhl.png",
     "url": "https://polymarket.com/event/nhl-mon-wsh-2026-01-13?via=shiroe"
@@ -189,28 +189,10 @@
     "url": "https://polymarket.com/event/spl-okh-kho-2026-01-13?via=shiroe"
   },
   {
-    "id": "154605",
-    "title": "ASB Classic: Fabian Marozsan vs Gael Monfils",
-    "yesPrice": 1,
-    "noPrice": 0,
-    "volume": 256889.9039419999,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/atp-tour-b4390c4fb8.jpg",
-    "url": "https://polymarket.com/event/atp-marozsa-monfils-2026-01-11?via=shiroe"
-  },
-  {
-    "id": "154604",
-    "title": "ASB Classic: Nuno Borges vs Tomas Etcheverry",
-    "yesPrice": 1,
-    "noPrice": 0,
-    "volume": 232706.55606200013,
-    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/atp-tour-b4390c4fb8.jpg",
-    "url": "https://polymarket.com/event/atp-borges-etcheve-2026-01-11?via=shiroe"
-  },
-  {
     "id": "134365",
     "title": "1. FSV Mainz 05 vs. 1. FC Heidenheim 1846 - More Markets",
-    "yesPrice": 0.305,
-    "noPrice": 0.695,
+    "yesPrice": 0.35,
+    "noPrice": 0.65,
     "volume": 19942.528459999994,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/league-bun.jpg",
     "url": "https://polymarket.com/event/bun-mai-hei-2026-01-13-more-markets?via=shiroe"
@@ -236,8 +218,8 @@
   {
     "id": "107664",
     "title": "CF Pachuca vs. Club León FC",
-    "yesPrice": 0.55,
-    "noPrice": 0.45,
+    "yesPrice": 0.555,
+    "noPrice": 0.445,
     "volume": 197684.35550500083,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/mex.png",
     "url": "https://polymarket.com/event/mex-pac-leo-2026-01-13?via=shiroe"
@@ -245,8 +227,8 @@
   {
     "id": "154394",
     "title": "Counter-Strike: Astralis vs fnatic (BO3)",
-    "yesPrice": 0.9645,
-    "noPrice": 0.0355,
+    "yesPrice": 0.9995,
+    "noPrice": 0.0005,
     "volume": 152216.06023200013,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/counter-strike-image-16c415c538.png",
     "url": "https://polymarket.com/event/cs2-ast10-fnc-2026-01-13?via=shiroe"
@@ -254,8 +236,8 @@
   {
     "id": "134288",
     "title": "1. FSV Mainz 05 vs. 1. FC Heidenheim 1846",
-    "yesPrice": 0.545,
-    "noPrice": 0.455,
+    "yesPrice": 0.735,
+    "noPrice": 0.265,
     "volume": 90399.259902,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/league-bun.jpg",
     "url": "https://polymarket.com/event/bun-mai-hei-2026-01-13?via=shiroe"
@@ -263,8 +245,8 @@
   {
     "id": "142054",
     "title": "Manchester United FC vs. Manchester City FC",
-    "yesPrice": 0.27,
-    "noPrice": 0.73,
+    "yesPrice": 0.275,
+    "noPrice": 0.725,
     "volume": 36123.479525999996,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/Repetitive-markets/premier+league.jpg",
     "url": "https://polymarket.com/event/epl-mun-mac-2026-01-17?via=shiroe"
@@ -299,8 +281,8 @@
   {
     "id": "112815",
     "title": "Newcastle United FC vs Manchester City FC",
-    "yesPrice": 0.395,
-    "noPrice": 0.605,
+    "yesPrice": 0.35,
+    "noPrice": 0.65,
     "volume": 111988.79313199993,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/carabao-cup-logo.png",
     "url": "https://polymarket.com/event/efl-new-mnc-2026-01-13?via=shiroe"
@@ -317,8 +299,8 @@
   {
     "id": "134286",
     "title": "Hamburger SV vs. Bayer 04 Leverkusen",
-    "yesPrice": 0.255,
-    "noPrice": 0.745,
+    "yesPrice": 0.315,
+    "noPrice": 0.685,
     "volume": 17281.098061,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/league-bun.jpg",
     "url": "https://polymarket.com/event/bun-hsv-b04-2026-01-13?via=shiroe"
@@ -380,8 +362,8 @@
   {
     "id": "155101",
     "title": "Hobart International: Emma Raducanu vs Camila Osorio",
-    "yesPrice": 0.505,
-    "noPrice": 0.495,
+    "yesPrice": 0.225,
+    "noPrice": 0.775,
     "volume": 18.832981,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/wta-logo-41f331bdf1.png",
     "url": "https://polymarket.com/event/wta-raducan-osorio-2026-01-11?via=shiroe"
@@ -398,8 +380,8 @@
   {
     "id": "134369",
     "title": "VfB Stuttgart vs. Eintracht Frankfurt - More Markets",
-    "yesPrice": 0.455,
-    "noPrice": 0.545,
+    "yesPrice": 0.0005,
+    "noPrice": 0.9995,
     "volume": 10607.589409,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/league-bun.jpg",
     "url": "https://polymarket.com/event/bun-stu-ein-2026-01-13-more-markets?via=shiroe"
@@ -425,8 +407,8 @@
   {
     "id": "151572",
     "title": "Cultural y Deportiva Leonesa vs. Athletic Club",
-    "yesPrice": 0.12,
-    "noPrice": 0.88,
+    "yesPrice": 0.29,
+    "noPrice": 0.71,
     "volume": 5638.145657,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/copa-del-ray-c8d5e1b076.png",
     "url": "https://polymarket.com/event/cdr-cul-ath-2026-01-13?via=shiroe"
@@ -434,8 +416,8 @@
   {
     "id": "117756",
     "title": "Bayeux FC vs. Olympique de Marseille",
-    "yesPrice": 0.024,
-    "noPrice": 0.976,
+    "yesPrice": 0.0005,
+    "noPrice": 0.9995,
     "volume": 10837.676308999999,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/coupe-france-soccer-6cf56ac790.png",
     "url": "https://polymarket.com/event/cde-bfc-olm-2026-01-13?via=shiroe"
@@ -448,5 +430,23 @@
     "volume": 54.570173,
     "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/mex.png",
     "url": "https://polymarket.com/event/mex-pue-maz-2026-01-13-more-markets?via=shiroe"
+  },
+  {
+    "id": "136142",
+    "title": "RB Leipzig vs. SC Freiburg",
+    "yesPrice": 0.555,
+    "noPrice": 0.445,
+    "volume": 47429.68772900002,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/league-bun.jpg",
+    "url": "https://polymarket.com/event/bun-lei-fre-2026-01-14?via=shiroe"
+  },
+  {
+    "id": "33682",
+    "title": "NFL MVP",
+    "yesPrice": 0.0005,
+    "noPrice": 0.9995,
+    "volume": 2220,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/nfl-mvp-1-mn5e_Pk0biQk.jpg",
+    "url": "https://polymarket.com/event/nfl-mvp-355?via=shiroe"
   }
 ]

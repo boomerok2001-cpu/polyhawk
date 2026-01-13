@@ -1,16 +1,24 @@
-import { POLYMARKET_REFERRAL, getPolymarketUrl, fetchPolymarketTrending } from '@/lib/api';
+import { fetchPolymarketTrending, getPolymarketUrl } from '@/lib/api';
 import { formatCurrency } from '@/data/markets';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+export const dynamicParams = false; // Only allow build-time paths
+
+export async function generateStaticParams() {
+    try {
+        const markets = await fetchPolymarketTrending();
+        return markets.map((market: any) => ({
+            id: market.id.toString(),
+        }));
+    } catch (e) {
+        console.error('Error generating static params:', e);
+        return [];
+    }
+}
 
 export default async function MarketPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
-    // In a production direct integration, we would hit https://gamma-api.polymarket.com/events/:id
-    // For this refactor without changing every fetch signature, we'll scan trending.
-    // If not found, we really should fetch the specific ID, but for now fallback to trending.
     const allMarkets = await fetchPolymarketTrending();
     const market = allMarkets.find((m) => m.id.toString() === id || (m.url && m.url.includes(id)));
 
@@ -18,15 +26,12 @@ export default async function MarketPage({ params }: { params: Promise<{ id: str
         notFound();
     }
 
-    // Calculate yes/no prices
     const yesPrice = market.yesPrice;
     const noPrice = market.noPrice;
 
-    // Derived Order Book Data (Mocked from actual spread/prices)
     const spread = 0.01;
     const halfSpread = spread / 2;
 
-    // Create realistic-looking order book centered around current price
     const orderBook = {
         bids: [
             { price: yesPrice - halfSpread - 0.005, size: (market.liquidity || 1000) * 0.15 },
